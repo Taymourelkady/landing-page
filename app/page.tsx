@@ -1,5 +1,5 @@
-import LandingPage from "@/app/landing/page"
+import { redirect } from "next/navigation"
 
 export default function Home() {
-  return <LandingPage />
+  redirect("/landing")
 }
