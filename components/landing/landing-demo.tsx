@@ -18,7 +18,7 @@ export function LandingDemo() {
       content: (
         <>
           <h3 className="text-2xl font-bold mb-3">Natural Language Queries</h3>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-muted-foreground mb-6 h-[48px]">
             Ask questions about your data in plain English and get immediate answers, no SQL knowledge required.
           </p>
 
@@ -29,7 +29,7 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Conversational Interface</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground mb-6 h-[48px]">
                   Chat with your data as if you're talking to a data analyst on your team.
                 </p>
               </div>
@@ -40,7 +40,7 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Direct Database Connection</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground mb-6 h-[48px]">
                   Connects directly to your data sources for real-time, accurate answers.
                 </p>
               </div>
@@ -48,7 +48,7 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "/placeholder.svg?height=720&width=1280",
+      image: "https://i.imgur.com/g6f6AaP.png",
     },
     {
       id: "metrics",
@@ -58,7 +58,7 @@ export function LandingDemo() {
       content: (
         <>
           <h3 className="text-2xl font-bold mb-3">Metrics Dictionary</h3>
-          <p className="text-muted-foreground mb-6">Ensure data consistency with a shared metrics dictionary.</p>
+          <p className="text-muted-foreground mb-6 h-[48px]">Ensure data consistency with a shared metrics dictionary.</p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -67,7 +67,7 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Consistent Definitions</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground mb-6 h-[48px]">
                   Use #metric_name to ensure everyone is using the same definitions.
                 </p>
               </div>
@@ -78,7 +78,7 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Data References</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground mb-6 h-[48px]">
                   Reference specific data rows with @reference for detailed analysis.
                 </p>
               </div>
@@ -86,7 +86,7 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "/placeholder.svg?height=720&width=1280",
+      image: "https://i.imgur.com/of1Kclj.png",
     },
     {
       id: "profiling",
@@ -96,7 +96,7 @@ export function LandingDemo() {
       content: (
         <>
           <h3 className="text-2xl font-bold mb-3">Data Profiling</h3>
-          <p className="text-muted-foreground mb-6">Identify and fix schema issues to ensure data quality.</p>
+          <p className="text-muted-foreground mb-6 h-[48px]">Identify and fix schema issues to ensure data quality.</p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -105,8 +105,8 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Schema Analysis</h4>
-                <p className="text-sm text-muted-foreground">
-                  Automatically analyze your data schema to identify inconsistencies and issues.
+                <p className="text-muted-foreground mb-6 h-[48px]">
+                Automatically analyze your data schema to identify inconsistencies and issues.
                 </p>
               </div>
             </div>
@@ -116,15 +116,15 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Actionable Recommendations</h4>
-                <p className="text-sm text-muted-foreground">
-                  Get specific recommendations to improve your data quality and consistency.
+                <p className="text-muted-foreground mb-6 h-[48px]">
+                Get specific recommendations to improve your data quality and consistency.
                 </p>
               </div>
             </div>
           </div>
         </>
       ),
-      image: "/placeholder.svg?height=720&width=1280",
+      image: "https://i.imgur.com/9XDf1pa.png",
     },
     {
       id: "visualizations",
@@ -134,7 +134,7 @@ export function LandingDemo() {
       content: (
         <>
           <h3 className="text-2xl font-bold mb-3">Smart Visualizations</h3>
-          <p className="text-muted-foreground mb-6">Automatically generate the perfect charts for your data.</p>
+          <p className="text-muted-foreground mb-6 h-[48px]">Automatically generate the perfect charts for your data.</p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -143,7 +143,7 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Smart Chart Selection</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground mb-6 h-[48px]">
                   AI automatically selects the best visualization type for your data.
                 </p>
               </div>
@@ -154,7 +154,7 @@ export function LandingDemo() {
               </div>
               <div>
                 <h4 className="font-medium">Interactive Exploration</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground mb-6 h-[48px]">
                   Ask follow-up questions to drill down into your visualizations.
                 </p>
               </div>
@@ -162,7 +162,7 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "/placeholder.svg?height=720&width=1280",
+      image: "https://i.imgur.com/UP76iM5.png",
     },
   ]
 

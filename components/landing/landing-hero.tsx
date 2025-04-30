@@ -30,11 +30,6 @@ export function LandingHero() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="gap-2 text-base px-8">
-                Contact Sales
-              </Button>
-            </Link>
           </div>
 
           {/* Chat Interface Preview */}
@@ -99,7 +94,7 @@ export function LandingHero() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <p className="font-medium">Connected to Snowflake</p>
+                <p className="font-medium">Connected your Database</p>
               </div>
             </div>
           </div>

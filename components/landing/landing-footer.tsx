@@ -83,14 +83,11 @@ export function LandingFooter() {
               accessible to everyone in your organization.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
+              <Link href="" className="text-muted-foreground hover:text-foreground">
                 Twitter
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
+              <Link href="https://www.linkedin.com/company/107068809/admin/dashboard/" className="text-muted-foreground hover:text-foreground">
                 LinkedIn
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                GitHub
               </Link>
             </div>
           </div>
@@ -129,3 +126,4 @@ export function LandingFooter() {
     </footer>
   )
 }
+

@@ -9,13 +9,13 @@ export function LandingPricing() {
   const plans = [
     {
       name: "Starter",
-      price: "$50",
+      price: "$80",
       period: "month",
       features: [
         "1 data source",
         "Up to 5 team members",
         "Unlimited queries",
-        "1 saved dashboard",
+        "4 saved dashboard",
         "Unlimited metrics configuration",
       ],
       popular: false,
@@ -23,12 +23,12 @@ export function LandingPricing() {
     },
     {
       name: "Growth",
-      price: "$400",
+      price: "$500",
       period: "month",
       features: [
         "Up to 5 data sources",
         "Unlimited queries",
-        "3 saved dashboards/reports",
+        "8 saved dashboards/reports",
         "Unlimited metrics configuration",
         "Unlimited users",
         "Growth product manager",
@@ -38,7 +38,7 @@ export function LandingPricing() {
     },
     {
       name: "Pro",
-      price: "$600",
+      price: "$900",
       period: "month",
       features: [
         "Unlimited data sources",

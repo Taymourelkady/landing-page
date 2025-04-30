@@ -13,7 +13,7 @@ export function LandingHeader() {
     { label: "Features", href: "#features" },
     { label: "Demo", href: "#demo" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Testimonials", href: "#testimonials" },
+    // { label: "Testimonials", href: "#testimonials" },
   ]
 
   return (
@@ -70,11 +70,6 @@ export function LandingHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="/contact" className="hidden md:block">
-            <Button variant="ghost" className="text-sm">
-              Contact Sales
-            </Button>
-          </Link>
           <Link href="/contact">
             <Button className="hidden md:flex bg-emerald-500 hover:bg-emerald-600">Book a Demo</Button>
           </Link>
@@ -99,11 +94,6 @@ export function LandingHeader() {
                     {item.label}
                   </Link>
                 ))}
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full justify-start mt-4">
-                    Contact Sales
-                  </Button>
-                </Link>
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full mt-2 bg-emerald-500 hover:bg-emerald-600">Book a Demo</Button>
                 </Link>
