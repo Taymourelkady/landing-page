@@ -1,12 +1,9 @@
 "use client"
 
 // Inspired by react-hot-toast library
-import * as React from "react"
+import type * as React from "react"
 
-import type {
-  ToastActionElement,
-  ToastProps,
-} from "@/components/ui/toast"
+import type { ToastActionElement, ToastProps } from "@/components/ui/toast"
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
@@ -85,9 +82,7 @@ export const reducer = (state: State, action: Action): State => {
     case "UPDATE_TOAST":
       return {
         ...state,
-        toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t
-        ),
+        toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
       }
 
     case "DISMISS_TOAST": {
@@ -111,7 +106,7 @@ export const reducer = (state: State, action: Action): State => {
                 ...t,
                 open: false,
               }
-            : t
+            : t,
         ),
       }
     }
@@ -171,24 +166,36 @@ function toast({ ...props }: Toast) {
   }
 }
 
-function useToast() {
-  const [state, setState] = React.useState<State>(memoryState)
+import { useState } from "react"
 
-  React.useEffect(() => {
-    listeners.push(setState)
-    return () => {
-      const index = listeners.indexOf(setState)
-      if (index > -1) {
-        listeners.splice(index, 1)
-      }
-    }
-  }, [state])
-
-  return {
-    ...state,
-    toast,
-    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
-  }
+type UseToastProps = {
+  title: string
+  description: string
+  variant?: "default" | "destructive"
 }
 
-export { useToast, toast }
+export function useToast() {
+  const [toast, setToast] = useState<UseToastProps | null>(null)
+  const [open, setOpen] = useState(false)
+
+  const showToast = (props: UseToastProps) => {
+    setToast(props)
+    setOpen(true)
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      setOpen(false)
+    }, 5000)
+  }
+
+  const hideToast = () => {
+    setOpen(false)
+  }
+
+  return {
+    toast: showToast,
+    hideToast,
+    toastProps: toast,
+    isOpen: open,
+  }
+}
