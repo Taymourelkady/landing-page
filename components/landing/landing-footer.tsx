@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Logo } from "@/components/ui/logo"
 
 export function LandingFooter() {
   const currentYear = new Date().getFullYear()
@@ -38,45 +39,8 @@ export function LandingFooter() {
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-emerald-500"
-              >
-                <path
-                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M16 8L8 16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 8H16V12"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M8 12H12V16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="font-bold text-xl">Treeo</span>
+            <div className="mb-4">
+              <Logo />
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               Treeo is an AI-powered analytics assistant that acts like a chat-based data analyst, making data
@@ -86,7 +50,10 @@ export function LandingFooter() {
               <Link href="" className="text-muted-foreground hover:text-foreground">
                 Twitter
               </Link>
-              <Link href="https://www.linkedin.com/company/107068809/admin/dashboard/" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://www.linkedin.com/company/107068809/admin/dashboard/"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 LinkedIn
               </Link>
             </div>
@@ -126,4 +93,3 @@ export function LandingFooter() {
     </footer>
   )
 }
-

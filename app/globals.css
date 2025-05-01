@@ -56,6 +56,18 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Improve form element visibility */
+  input,
+  textarea,
+  select {
+    @apply text-foreground bg-background border-border/60;
+  }
+
+  /* Improve label visibility */
+  label {
+    @apply text-foreground font-medium;
+  }
 }
 
 .animation-delay-2000 {
@@ -64,4 +76,76 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+/* Add a focus style that's more visible */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-background;
+}
+
+/* No-scroll contact page styles */
+.contact-page-bg {
+  background-color: #101827;
+}
+
+.contact-sidebar-bg {
+  background-color: #1a1f2e;
+}
+
+.contact-form-bg {
+  background-color: #1a1f2e;
+}
+
+.contact-input-bg {
+  background-color: #101827;
+}
+
+/* Pricing card hover effects */
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.pricing-card-hover {
+  transition: all 0.3s ease;
+}
+
+.pricing-card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: rgba(16, 185, 129, 0.7);
+}
+
+.best-deal-badge {
+  animation: pulse-border 2s infinite;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 500ms, transform 500ms;
 }

@@ -2,14 +2,19 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check } from "lucide-react"
+import { Check, Sparkles } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 export function LandingPricing() {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+
   const plans = [
     {
       name: "Starter",
+      originalPrice: "$120",
       price: "$80",
+      discount: "33%",
       period: "month",
       features: [
         "1 data source",
@@ -19,11 +24,14 @@ export function LandingPricing() {
         "Unlimited metrics configuration",
       ],
       popular: false,
+      bestDeal: false,
       buttonVariant: "outline" as const,
     },
     {
       name: "Growth",
+      originalPrice: "$900",
       price: "$500",
+      discount: "44%",
       period: "month",
       features: [
         "Up to 5 data sources",
@@ -34,11 +42,14 @@ export function LandingPricing() {
         "Growth product manager",
       ],
       popular: true,
+      bestDeal: true,
       buttonVariant: "default" as const,
     },
     {
       name: "Pro",
+      originalPrice: "$1200",
       price: "$900",
+      discount: "25%",
       period: "month",
       features: [
         "Unlimited data sources",
@@ -48,6 +59,7 @@ export function LandingPricing() {
         "Data profiling",
       ],
       popular: false,
+      bestDeal: false,
       buttonVariant: "outline" as const,
     },
   ]
@@ -56,6 +68,10 @@ export function LandingPricing() {
     <section id="pricing" className="py-20">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-4">
+            <Sparkles className="h-4 w-4 text-emerald-500" />
+            <span className="text-emerald-500">Limited Time Offer</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Choose the plan that's right for your business, with no hidden fees or surprises.
@@ -64,15 +80,25 @@ export function LandingPricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
-            <div key={index} className="flex">
+            <div
+              key={index}
+              className="flex"
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
               <Card
-                className={`flex flex-col w-full border-border/40 ${
+                className={`flex flex-col w-full border-border/40 transition-all duration-300 ${
                   plan.popular ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
-                }`}
+                } ${hoveredCard === index ? "transform scale-105 shadow-xl border-emerald-500/70 z-10" : ""}`}
               >
                 {plan.popular && (
                   <div className="bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full absolute -top-3 left-1/2 -translate-x-1/2">
                     Most Popular
+                  </div>
+                )}
+                {plan.bestDeal && (
+                  <div className="bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full absolute -top-3 right-4">
+                    Best Deal
                   </div>
                 )}
                 <CardHeader className={`${plan.popular ? "pt-6" : ""}`}>
@@ -80,8 +106,18 @@ export function LandingPricing() {
                 </CardHeader>
                 <CardContent className="flex-1">
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-emerald-500">{plan.price}</span>
-                    <span className="text-muted-foreground">/{plan.period}</span>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-4xl font-bold text-emerald-500">{plan.price}</span>
+                      <span className="text-muted-foreground">/{plan.period}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-muted-foreground line-through">
+                        {plan.originalPrice}/{plan.period}
+                      </span>
+                      <span className="text-xs font-medium bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded-full">
+                        Save {plan.discount}
+                      </span>
+                    </div>
                   </div>
 
                   <ul className="space-y-2">
@@ -97,7 +133,13 @@ export function LandingPricing() {
                   <Link href="/contact" className="w-full">
                     <Button
                       variant={plan.buttonVariant}
-                      className={`w-full ${plan.popular ? "bg-emerald-500 hover:bg-emerald-600 text-white" : ""}`}
+                      className={`w-full transition-all duration-300 ${
+                        plan.popular
+                          ? "bg-emerald-500 hover:bg-emerald-600 text-white"
+                          : hoveredCard === index
+                            ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
+                            : ""
+                      }`}
                     >
                       Contact Sales
                     </Button>
@@ -106,6 +148,17 @@ export function LandingPricing() {
               </Card>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12 text-muted-foreground">
+          <p>All plans include a 14-day free trial. No credit card required.</p>
+          <p className="mt-2">
+            Need a custom plan?{" "}
+            <Link href="/contact" className="text-emerald-500 hover:underline">
+              Contact us
+            </Link>{" "}
+            for enterprise pricing.
+          </p>
         </div>
       </div>
     </section>

@@ -58,7 +58,9 @@ export function LandingDemo() {
       content: (
         <>
           <h3 className="text-2xl font-bold mb-3">Metrics Dictionary</h3>
-          <p className="text-muted-foreground mb-6 h-[48px]">Ensure data consistency with a shared metrics dictionary.</p>
+          <p className="text-muted-foreground mb-6 h-[48px]">
+            Ensure data consistency with a shared metrics dictionary.
+          </p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -106,7 +108,7 @@ export function LandingDemo() {
               <div>
                 <h4 className="font-medium">Schema Analysis</h4>
                 <p className="text-muted-foreground mb-6 h-[48px]">
-                Automatically analyze your data schema to identify inconsistencies and issues.
+                  Automatically analyze your data schema to identify inconsistencies and issues.
                 </p>
               </div>
             </div>
@@ -117,7 +119,7 @@ export function LandingDemo() {
               <div>
                 <h4 className="font-medium">Actionable Recommendations</h4>
                 <p className="text-muted-foreground mb-6 h-[48px]">
-                Get specific recommendations to improve your data quality and consistency.
+                  Get specific recommendations to improve your data quality and consistency.
                 </p>
               </div>
             </div>
@@ -134,7 +136,9 @@ export function LandingDemo() {
       content: (
         <>
           <h3 className="text-2xl font-bold mb-3">Smart Visualizations</h3>
-          <p className="text-muted-foreground mb-6 h-[48px]">Automatically generate the perfect charts for your data.</p>
+          <p className="text-muted-foreground mb-6 h-[48px]">
+            Automatically generate the perfect charts for your data.
+          </p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">

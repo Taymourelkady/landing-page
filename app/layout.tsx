@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
+import { TransitionProvider } from "@/components/ui/transition-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -35,9 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className="bg-background min-h-screen">
+      <body className="bg-[#101827] text-white min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
-          {children}
+          <TransitionProvider>{children}</TransitionProvider>
           <Toaster />
         </ThemeProvider>
       </body>

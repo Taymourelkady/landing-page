@@ -103,17 +103,37 @@ export function ContactForm() {
           <div className="grid gap-6">
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" placeholder="John" required value={formData.firstName} onChange={handleChange} />
+                <Label htmlFor="firstName" className="text-white">
+                  First Name
+                </Label>
+                <Input
+                  id="firstName"
+                  placeholder="John"
+                  required
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+                />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" placeholder="Doe" required value={formData.lastName} onChange={handleChange} />
+                <Label htmlFor="lastName" className="text-white">
+                  Last Name
+                </Label>
+                <Input
+                  id="lastName"
+                  placeholder="Doe"
+                  required
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+                />
               </div>
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="email">Work Email</Label>
+              <Label htmlFor="email" className="text-white">
+                Work Email
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -121,24 +141,30 @@ export function ContactForm() {
                 required
                 value={formData.email}
                 onChange={handleChange}
+                className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
               />
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="company">Company</Label>
+              <Label htmlFor="company" className="text-white">
+                Company
+              </Label>
               <Input
                 id="company"
                 placeholder="Your Company"
                 required
                 value={formData.company}
                 onChange={handleChange}
+                className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
               />
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="role">Role</Label>
+              <Label htmlFor="role" className="text-white">
+                Role
+              </Label>
               <Select value={formData.role} onValueChange={(value) => handleSelectChange("role", value)}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-muted border-border/60 focus:ring-emerald-500/20">
                   <SelectValue placeholder="Select your role" />
                 </SelectTrigger>
                 <SelectContent>
@@ -153,9 +179,11 @@ export function ContactForm() {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="interest">I'm interested in</Label>
+              <Label htmlFor="interest" className="text-white">
+                I'm interested in
+              </Label>
               <Select value={formData.interest} onValueChange={(value) => handleSelectChange("interest", value)}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-muted border-border/60 focus:ring-emerald-500/20">
                   <SelectValue placeholder="Select your interest" />
                 </SelectTrigger>
                 <SelectContent>
@@ -169,11 +197,13 @@ export function ContactForm() {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="message">Message</Label>
+              <Label htmlFor="message" className="text-white">
+                Message
+              </Label>
               <Textarea
                 id="message"
                 placeholder="Tell us about your data needs and how we can help"
-                className="min-h-[100px]"
+                className="min-h-[100px] bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
                 value={formData.message}
                 onChange={handleChange}
               />
