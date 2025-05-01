@@ -17,8 +17,8 @@ export function LandingDemo() {
       icon: <MessageSquare className="h-5 w-5" />,
       content: (
         <>
-          <h3 className="text-2xl font-bold mb-3">Natural Language Queries</h3>
-          <p className="text-muted-foreground mb-6 h-[48px]">
+          <h3 className="text-2xl font-bold mb-3 text-white">Natural Language Queries</h3>
+          <p className="text-gray-300 mb-6 h-[48px]">
             Ask questions about your data in plain English and get immediate answers, no SQL knowledge required.
           </p>
 
@@ -28,8 +28,8 @@ export function LandingDemo() {
                 <MessageSquare className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Conversational Interface</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Conversational Interface</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Chat with your data as if you're talking to a data analyst on your team.
                 </p>
               </div>
@@ -39,8 +39,8 @@ export function LandingDemo() {
                 <Database className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Direct Database Connection</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Direct Database Connection</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Connects directly to your data sources for real-time, accurate answers.
                 </p>
               </div>
@@ -57,10 +57,8 @@ export function LandingDemo() {
       icon: <Hash className="h-5 w-5" />,
       content: (
         <>
-          <h3 className="text-2xl font-bold mb-3">Metrics Dictionary</h3>
-          <p className="text-muted-foreground mb-6 h-[48px]">
-            Ensure data consistency with a shared metrics dictionary.
-          </p>
+          <h3 className="text-2xl font-bold mb-3 text-white">Metrics Dictionary</h3>
+          <p className="text-gray-300 mb-6 h-[48px]">Ensure data consistency with a shared metrics dictionary.</p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -68,8 +66,8 @@ export function LandingDemo() {
                 <Hash className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Consistent Definitions</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Consistent Definitions</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Use #metric_name to ensure everyone is using the same definitions.
                 </p>
               </div>
@@ -79,8 +77,8 @@ export function LandingDemo() {
                 <AtSign className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Data References</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Data References</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Reference specific data rows with @reference for detailed analysis.
                 </p>
               </div>
@@ -97,8 +95,8 @@ export function LandingDemo() {
       icon: <FileCheck className="h-5 w-5" />,
       content: (
         <>
-          <h3 className="text-2xl font-bold mb-3">Data Profiling</h3>
-          <p className="text-muted-foreground mb-6 h-[48px]">Identify and fix schema issues to ensure data quality.</p>
+          <h3 className="text-2xl font-bold mb-3 text-white">Data Profiling</h3>
+          <p className="text-gray-300 mb-6 h-[48px]">Identify and fix schema issues to ensure data quality.</p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -106,8 +104,8 @@ export function LandingDemo() {
                 <FileCheck className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Schema Analysis</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Schema Analysis</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Automatically analyze your data schema to identify inconsistencies and issues.
                 </p>
               </div>
@@ -117,8 +115,8 @@ export function LandingDemo() {
                 <ArrowRight className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Actionable Recommendations</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Actionable Recommendations</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Get specific recommendations to improve your data quality and consistency.
                 </p>
               </div>
@@ -135,10 +133,8 @@ export function LandingDemo() {
       icon: <LineChart className="h-5 w-5" />,
       content: (
         <>
-          <h3 className="text-2xl font-bold mb-3">Smart Visualizations</h3>
-          <p className="text-muted-foreground mb-6 h-[48px]">
-            Automatically generate the perfect charts for your data.
-          </p>
+          <h3 className="text-2xl font-bold mb-3 text-white">Smart Visualizations</h3>
+          <p className="text-gray-300 mb-6 h-[48px]">Automatically generate the perfect charts for your data.</p>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
@@ -146,8 +142,8 @@ export function LandingDemo() {
                 <LineChart className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Smart Chart Selection</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Smart Chart Selection</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   AI automatically selects the best visualization type for your data.
                 </p>
               </div>
@@ -157,8 +153,8 @@ export function LandingDemo() {
                 <MessageSquare className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <h4 className="font-medium">Interactive Exploration</h4>
-                <p className="text-muted-foreground mb-6 h-[48px]">
+                <h4 className="font-medium text-white">Interactive Exploration</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
                   Ask follow-up questions to drill down into your visualizations.
                 </p>
               </div>
@@ -171,18 +167,18 @@ export function LandingDemo() {
   ]
 
   return (
-    <section id="demo" className="py-20">
+    <section id="demo" className="py-20 bg-[#101827]">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">See Treeo in Action</h2>
-          <p className="text-xl text-muted-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">See Treeo in Action</h2>
+          <p className="text-xl text-gray-300">
             Experience how Treeo transforms data analysis with AI-powered features that make insights accessible to
             everyone.
           </p>
         </div>
 
         <Tabs defaultValue="chat" value={activeTab} onValueChange={setActiveTab} className="max-w-5xl mx-auto">
-          <TabsList className="grid grid-cols-4 gap-2 mb-8 p-1 bg-muted/50">
+          <TabsList className="grid grid-cols-4 gap-2 mb-8 p-1 bg-[#0c1420]">
             {demos.map((demo) => (
               <TabsTrigger
                 key={demo.id}
@@ -208,7 +204,7 @@ export function LandingDemo() {
                 </div>
 
                 <div className="md:col-span-3 order-1 md:order-2">
-                  <div className="rounded-xl overflow-hidden border border-border/40 shadow-lg">
+                  <div className="rounded-xl overflow-hidden border border-gray-700 shadow-lg">
                     <img src={demo.image || "/placeholder.svg"} alt={demo.title} className="w-full h-auto" />
                   </div>
                 </div>

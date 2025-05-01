@@ -33,7 +33,7 @@ export default function LandingLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className="bg-background min-h-screen">
+      <body className="bg-[#101827] text-white min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
           {children}
         </ThemeProvider>

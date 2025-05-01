@@ -6,9 +6,9 @@ import { ArrowRight, MessageSquare } from "lucide-react"
 
 export function LandingCTA() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden bg-[#101827]">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-emerald-500/5 to-background z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#101827] via-emerald-500/5 to-[#101827] z-0" />
 
       {/* Animated gradient background */}
       <div className="absolute inset-0 opacity-20">
@@ -19,8 +19,8 @@ export function LandingCTA() {
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <MessageSquare className="h-12 w-12 text-emerald-500 mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Data Experience?</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to Transform Your Data Experience?</h2>
+          <p className="text-xl text-gray-300 mb-8">
             Join leading companies that are using Treeo to make data accessible to everyone in their organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -31,7 +31,11 @@ export function LandingCTA() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="gap-2 text-base px-8">
+              <Button
+                size="lg"
+                variant="outline"
+                className="gap-2 text-base px-8 border-gray-600 text-white hover:bg-gray-800"
+              >
                 Contact Sales
               </Button>
             </Link>

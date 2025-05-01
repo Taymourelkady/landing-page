@@ -9,7 +9,7 @@ import { PageTransition } from "@/components/ui/page-transition"
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#101827]">
       <LandingHeader />
       <PageTransition>
         <LandingHero />

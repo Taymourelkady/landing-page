@@ -42,22 +42,25 @@ export function LandingFeatures() {
   ]
 
   return (
-    <section id="features" className="py-20 bg-muted/30">
+    <section id="features" className="py-20 bg-[#0c1420]">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Your AI Data Analyst, Always On Call</h2>
-          <p className="text-xl text-muted-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Your AI Data Analyst, Always On Call</h2>
+          <p className="text-xl text-gray-300">
             Treeo makes data accessible to everyone in your organization, ensuring consistency and accuracy.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <Card key={index} className="h-full border-border/40 hover:border-emerald-500/50 transition-colors">
+            <Card
+              key={index}
+              className="h-full bg-[#1A1F2E] border-gray-700 hover:border-emerald-500/50 transition-colors"
+            >
               <CardContent className="pt-6">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
               </CardContent>
             </Card>
           ))}

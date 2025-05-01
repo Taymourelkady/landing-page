@@ -18,7 +18,7 @@ export function LandingHeader() {
   ]
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b border-gray-700 bg-[#101827]/95 backdrop-blur supports-[backdrop-filter]:bg-[#101827]/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Logo />
@@ -30,7 +30,7 @@ export function LandingHeader() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
             >
               {item.label}
             </Link>
@@ -50,14 +50,14 @@ export function LandingHeader() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A1F2E] border-gray-700">
               <nav className="flex flex-col gap-4 mt-8">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-lg font-medium hover:text-emerald-500"
+                    className="text-lg font-medium text-white hover:text-emerald-500"
                   >
                     {item.label}
                   </Link>

@@ -65,15 +65,15 @@ export function LandingPricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20">
+    <section id="pricing" className="py-20 bg-[#0c1420]">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-4">
             <Sparkles className="h-4 w-4 text-emerald-500" />
-            <span className="text-emerald-500">Limited Time Offer</span>
+            <span className="text-emerald-400">Limited Time Offer</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Simple, Transparent Pricing</h2>
+          <p className="text-xl text-gray-300 mb-8">
             Choose the plan that's right for your business, with no hidden fees or surprises.
           </p>
         </div>
@@ -87,7 +87,7 @@ export function LandingPricing() {
               onMouseLeave={() => setHoveredCard(null)}
             >
               <Card
-                className={`flex flex-col w-full border-border/40 transition-all duration-300 ${
+                className={`flex flex-col w-full bg-[#1A1F2E] border-gray-700 transition-all duration-300 ${
                   plan.popular ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
                 } ${hoveredCard === index ? "transform scale-105 shadow-xl border-emerald-500/70 z-10" : ""}`}
               >
@@ -102,19 +102,19 @@ export function LandingPricing() {
                   </div>
                 )}
                 <CardHeader className={`${plan.popular ? "pt-6" : ""}`}>
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                  <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-4xl font-bold text-emerald-500">{plan.price}</span>
-                      <span className="text-muted-foreground">/{plan.period}</span>
+                      <span className="text-gray-400">/{plan.period}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground line-through">
+                      <span className="text-sm text-gray-400 line-through">
                         {plan.originalPrice}/{plan.period}
                       </span>
-                      <span className="text-xs font-medium bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-medium bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">
                         Save {plan.discount}
                       </span>
                     </div>
@@ -124,7 +124,7 @@ export function LandingPricing() {
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Check className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>{feature}</span>
+                        <span className="text-gray-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -138,7 +138,7 @@ export function LandingPricing() {
                           ? "bg-emerald-500 hover:bg-emerald-600 text-white"
                           : hoveredCard === index
                             ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
-                            : ""
+                            : "border-gray-600 text-white hover:bg-gray-800"
                       }`}
                     >
                       Contact Sales
@@ -150,7 +150,7 @@ export function LandingPricing() {
           ))}
         </div>
 
-        <div className="text-center mt-12 text-muted-foreground">
+        <div className="text-center mt-12 text-gray-300">
           <p>All plans include a 14-day free trial. No credit card required.</p>
           <p className="mt-2">
             Need a custom plan?{" "}

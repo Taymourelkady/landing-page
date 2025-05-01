@@ -35,24 +35,24 @@ export function LandingFooter() {
   ]
 
   return (
-    <footer className="bg-muted/50 border-t border-border/40">
+    <footer className="bg-[#0c1420] border-t border-gray-700">
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="text-muted-foreground mb-4 max-w-md">
+            <p className="text-gray-300 mb-4 max-w-md">
               Treeo is an AI-powered analytics assistant that acts like a chat-based data analyst, making data
               accessible to everyone in your organization.
             </p>
             <div className="flex gap-4">
-              <Link href="" className="text-muted-foreground hover:text-foreground">
+              <Link href="" className="text-gray-400 hover:text-white">
                 Twitter
               </Link>
               <Link
                 href="https://www.linkedin.com/company/107068809/admin/dashboard/"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-gray-400 hover:text-white"
               >
                 LinkedIn
               </Link>
@@ -61,11 +61,11 @@ export function LandingFooter() {
 
           {footerLinks.map((group, index) => (
             <div key={index}>
-              <h3 className="font-medium mb-4">{group.title}</h3>
+              <h3 className="font-medium mb-4 text-white">{group.title}</h3>
               <ul className="space-y-3">
                 {group.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <Link href={link.href} className="text-muted-foreground hover:text-foreground">
+                    <Link href={link.href} className="text-gray-400 hover:text-white">
                       {link.label}
                     </Link>
                   </li>
@@ -75,16 +75,16 @@ export function LandingFooter() {
           ))}
         </div>
 
-        <div className="border-t border-border/40 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">© {currentYear} Treeo. All rights reserved.</p>
+        <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-gray-400">© {currentYear} Treeo. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/terms" className="text-sm text-gray-400 hover:text-white">
               Terms of Service
             </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/privacy" className="text-sm text-gray-400 hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link href="/cookies" className="text-sm text-gray-400 hover:text-white">
               Cookie Policy
             </Link>
           </div>

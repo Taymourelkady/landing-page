@@ -6,19 +6,19 @@ import { ArrowRight } from "lucide-react"
 
 export function LandingHero() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32">
+    <section className="relative overflow-hidden py-20 md:py-32 bg-[#101827]">
       <div className="container relative z-10">
         <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-muted/50 px-4 py-1.5 text-sm font-medium mb-6">
-            <span className="text-emerald-500">AI-Powered</span>
-            <span className="text-muted-foreground">Analytics Assistant</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-6">
+            <span className="text-emerald-400">AI-Powered</span>
+            <span className="text-gray-300">Analytics Assistant</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-white">
             Your <span className="text-emerald-500">Chat-Based</span> Data Analyst
           </h1>
 
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl">
             Treeo connects to your database and analytics stack, allowing any team member to ask questions in natural
             language and receive immediate answers, charts, and insights.
           </p>
@@ -34,9 +34,9 @@ export function LandingHero() {
 
           {/* Chat Interface Preview */}
           <div className="mt-16 md:mt-20 relative mx-auto max-w-5xl">
-            <div className="relative rounded-xl overflow-hidden border border-border/40 shadow-2xl">
+            <div className="relative rounded-xl overflow-hidden border border-gray-700 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-blue-500/10 z-0" />
-              <div className="relative z-10 bg-background p-6 rounded-t-xl border-b border-border/40">
+              <div className="relative z-10 bg-[#1A1F2E] p-6 rounded-t-xl border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <svg
                     width="20"
@@ -54,19 +54,21 @@ export function LandingHero() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="font-medium">Analytics Chat</span>
+                  <span className="font-medium text-white">Analytics Chat</span>
                 </div>
               </div>
-              <div className="relative z-10 bg-background p-6">
+              <div className="relative z-10 bg-[#1A1F2E] p-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex gap-3 justify-end">
                     <div className="bg-emerald-500/20 p-3 rounded-lg max-w-[80%]">
-                      <p>What was our revenue growth last quarter compared to the previous quarter?</p>
+                      <p className="text-white">
+                        What was our revenue growth last quarter compared to the previous quarter?
+                      </p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="bg-muted p-3 rounded-lg max-w-[80%]">
-                      <p>
+                    <div className="bg-[#0c1420] p-3 rounded-lg max-w-[80%]">
+                      <p className="text-gray-300">
                         Revenue grew by 23.5% last quarter compared to the previous quarter. Would you like to see a
                         breakdown by product category?
                       </p>
@@ -76,7 +78,7 @@ export function LandingHero() {
               </div>
             </div>
 
-            <div className="absolute -right-12 -top-12 bg-card border border-border/40 p-4 rounded-lg shadow-lg hidden md:block">
+            <div className="absolute -right-12 -top-12 bg-[#1A1F2E] border border-gray-700 p-4 rounded-lg shadow-lg hidden md:block">
               <div className="flex items-center gap-2">
                 <svg
                   width="20"
@@ -94,7 +96,7 @@ export function LandingHero() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <p className="font-medium">Connected your Database</p>
+                <p className="font-medium text-white">Connected your Database</p>
               </div>
             </div>
           </div>
