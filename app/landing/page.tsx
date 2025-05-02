@@ -12,6 +12,15 @@ import { PageTransition } from "@/components/ui/page-transition"
 import { DebugSectionIds } from "@/components/debug-section-ids"
 
 export default function LandingPage() {
+  // Scroll to top on initial page load
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    })
+  }, [])
+
   // Handle hash navigation on initial page load
   useEffect(() => {
     // Function to scroll to the element with the given ID

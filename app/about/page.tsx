@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import { AboutHeader } from "@/components/about/about-header"
 import { LandingFooter } from "@/components/landing/landing-footer"
 import { AboutHero } from "@/components/about/about-hero"
@@ -9,6 +12,15 @@ import { AboutCTA } from "@/components/about/about-cta"
 import { PageTransition } from "@/components/ui/page-transition"
 
 export default function AboutPage() {
+  // Scroll to top on initial page load
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    })
+  }, [])
+
   return (
     <div className="min-h-screen bg-[#101827]">
       <AboutHeader />

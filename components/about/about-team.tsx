@@ -3,28 +3,22 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 export function AboutTeam() {
   const team = [
     {
-      name: "Alex Johnson",
+      name: "Taymour Elkady",
       role: "Founder & CEO",
-      bio: "Former data scientist with 10+ years experience solving data consistency problems at scale.",
+      bio: "Startup veteran with expertise in marketplaces, Operations, Product, and Data Analytics.",
       avatar: "AJ",
     },
     {
-      name: "Sarah Chen",
-      role: "CTO",
+      name: "Ahmed Abdelmaksoud",
+      role: "Founder & CDO",
       bio: "Machine learning expert specializing in natural language processing and data visualization.",
       avatar: "SC",
     },
     {
-      name: "Michael Rodriguez",
-      role: "Head of Product",
-      bio: "Product leader focused on creating intuitive interfaces for complex data problems.",
+      name: "John Doe",
+      role: "Founder & CTO",
+      bio: "Second time founder, technical expert specializing in SaaS.",
       avatar: "MR",
-    },
-    {
-      name: "Priya Patel",
-      role: "Head of Customer Success",
-      bio: "Dedicated to ensuring customers extract maximum value from their data with Treeo.",
-      avatar: "PP",
     },
   ]
 
@@ -39,11 +33,14 @@ export function AboutTeam() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {team.map((member) => (
-            <div key={member.name} className="bg-[#1A1F2E] p-6 rounded-lg border border-gray-700 text-center">
+            <div
+              key={member.name}
+              className="bg-[#1A1F2E] p-6 rounded-lg border border-gray-700 text-center max-w-sm mx-auto"
+            >
               <Avatar className="h-24 w-24 mx-auto mb-4">
-                <AvatarImage src={`/placeholder.svg?height=96&width=96&text=${member.avatar}`} />
+                <AvatarImage src={`/placeholder.svg?key=50eth&height=96&width=96&text=${member.avatar}`} />
                 <AvatarFallback className="bg-emerald-500/20 text-emerald-500 text-xl">{member.avatar}</AvatarFallback>
               </Avatar>
               <h3 className="text-xl font-semibold mb-1 text-white">{member.name}</h3>

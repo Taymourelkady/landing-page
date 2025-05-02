@@ -149,3 +149,22 @@
   transform: translateY(8px);
   transition: opacity 500ms, transform 500ms;
 }
+
+/* Dropdown menu styles */
+.dropdown-menu-item {
+  @apply flex items-center px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-emerald-500/20 rounded-md transition-colors;
+}
+
+/* Dropdown arrow animation */
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Mobile dropdown styles */
+.mobile-dropdown-section {
+  @apply pl-4 border-l border-gray-700 space-y-2 mb-4;
+}

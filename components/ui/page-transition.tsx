@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
-import type { ReactNode } from "react"
+import { useEffect, type ReactNode } from "react"
 
 interface PageTransitionProps {
   children: ReactNode
@@ -10,6 +10,15 @@ interface PageTransitionProps {
 
 export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname()
+
+  // Scroll to top whenever the pathname changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // Use instant instead of smooth for immediate reset
+    })
+  }, [pathname])
 
   return (
     <motion.div
