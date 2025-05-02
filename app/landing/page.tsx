@@ -1,3 +1,5 @@
+"use client"
+
 import { LandingHeader } from "@/components/landing/landing-header"
 import { LandingHero } from "@/components/landing/landing-hero"
 import { LandingFeatures } from "@/components/landing/landing-features"
@@ -6,8 +8,12 @@ import { LandingPricing } from "@/components/landing/landing-pricing"
 import { LandingCTA } from "@/components/landing/landing-cta"
 import { LandingFooter } from "@/components/landing/landing-footer"
 import { PageTransition } from "@/components/ui/page-transition"
+import { useScrollToHash } from "@/hooks/use-scroll-to-hash"
 
 export default function LandingPage() {
+  // Use the custom hook to handle hash navigation
+  useScrollToHash()
+
   return (
     <div className="min-h-screen bg-[#101827]">
       <LandingHeader />

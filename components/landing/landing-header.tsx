@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -17,6 +19,41 @@ export function LandingHeader() {
     { label: "About", href: "/about" },
   ]
 
+  // Function to handle smooth scrolling for hash links
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Only handle hash links on the current page
+    if (href.startsWith("#")) {
+      e.preventDefault()
+
+      const targetId = href.substring(1)
+      const element = document.getElementById(targetId)
+
+      if (element) {
+        // Get header height for offset
+        const header = document.querySelector("header")
+        const headerHeight = header ? header.getBoundingClientRect().height : 0
+
+        // Calculate position
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY
+        const offsetPosition = elementPosition - headerHeight - 20
+
+        // Scroll
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
+
+        // Update URL without triggering a scroll
+        window.history.pushState(null, "", href)
+
+        // Close mobile menu if open
+        if (isMenuOpen) {
+          setIsMenuOpen(false)
+        }
+      }
+    }
+  }
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-gray-700 bg-[#101827]/95 backdrop-blur supports-[backdrop-filter]:bg-[#101827]/60">
       <div className="container flex h-16 items-center justify-between">
@@ -30,6 +67,7 @@ export function LandingHeader() {
             <Link
               key={item.label}
               href={item.href}
+              onClick={(e) => handleHashClick(e, item.href)}
               className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
             >
               {item.label}
@@ -56,7 +94,7 @@ export function LandingHeader() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => handleHashClick(e, item.href)}
                     className="text-lg font-medium text-white hover:text-emerald-500"
                   >
                     {item.label}

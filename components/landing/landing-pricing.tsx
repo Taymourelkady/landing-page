@@ -23,9 +23,6 @@ export function LandingPricing() {
         "4 saved dashboard",
         "Unlimited metrics configuration",
       ],
-      popular: false,
-      bestDeal: false,
-      buttonVariant: "outline" as const,
     },
     {
       name: "Growth",
@@ -41,9 +38,6 @@ export function LandingPricing() {
         "Unlimited users",
         "Growth product manager",
       ],
-      popular: true,
-      bestDeal: true,
-      buttonVariant: "default" as const,
     },
     {
       name: "Pro",
@@ -58,14 +52,11 @@ export function LandingPricing() {
         "Growth product manager",
         "Data profiling",
       ],
-      popular: false,
-      bestDeal: false,
-      buttonVariant: "outline" as const,
     },
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-[#0c1420]">
+    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-20">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-4">
@@ -82,26 +73,28 @@ export function LandingPricing() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className="flex"
+              className="w-full"
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
               <Card
-                className={`flex flex-col w-full bg-[#1A1F2E] border-gray-700 transition-all duration-300 ${
-                  plan.popular ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
+                className={`flex flex-col w-full bg-[#1A1F2E] border-gray-700 transition-all duration-300 relative ${
+                  index === 1 ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
                 } ${hoveredCard === index ? "transform scale-105 shadow-xl border-emerald-500/70 z-10" : ""}`}
               >
-                {plan.popular && (
-                  <div className="bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full absolute -top-3 left-1/2 -translate-x-1/2">
-                    Most Popular
-                  </div>
+                {/* Badges attached to the card */}
+                {index === 1 && (
+                  <>
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                      Most Popular
+                    </div>
+                    <div className="absolute -top-3 right-4 z-20 bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                      Best Deal
+                    </div>
+                  </>
                 )}
-                {plan.bestDeal && (
-                  <div className="bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full absolute -top-3 right-4">
-                    Best Deal
-                  </div>
-                )}
-                <CardHeader className={`${plan.popular ? "pt-6" : ""}`}>
+
+                <CardHeader className={`${index === 1 ? "pt-6" : ""}`}>
                   <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1">
@@ -132,9 +125,9 @@ export function LandingPricing() {
                 <CardFooter>
                   <Link href="/contact" className="w-full">
                     <Button
-                      variant={plan.buttonVariant}
+                      variant={index === 1 ? "default" : "outline"}
                       className={`w-full transition-all duration-300 ${
-                        plan.popular
+                        index === 1
                           ? "bg-emerald-500 hover:bg-emerald-600 text-white"
                           : hoveredCard === index
                             ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"

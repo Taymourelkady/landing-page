@@ -42,7 +42,7 @@ export function LandingFeatures() {
   ]
 
   return (
-    <section id="features" className="py-20 bg-[#0c1420]">
+    <section id="features" className="py-20 bg-[#0c1420] scroll-mt-20">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Your AI Data Analyst, Always On Call</h2>

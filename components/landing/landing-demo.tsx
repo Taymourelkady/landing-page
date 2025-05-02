@@ -167,7 +167,7 @@ export function LandingDemo() {
   ]
 
   return (
-    <section id="demo" className="py-20 bg-[#101827]">
+    <section id="demo" className="py-20 bg-[#101827] scroll-mt-20">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">See Treeo in Action</h2>
