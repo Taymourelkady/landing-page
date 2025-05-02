@@ -6,15 +6,15 @@ import { Logo } from "@/components/ui/logo"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-[#101827] flex items-center justify-center p-6 dark">
+    <div className="min-h-screen bg-[#101827] flex items-center justify-center p-16 dark">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-7 gap-6 relative">
         {/* Back to home button */}
-        <div className="absolute top-0 left-0 -mt-16">
+        <div className="absolute top-0 left-0 -mt-20">
           <Link href="/landing">
             <Button
               variant="outline"
               size="sm"
-              className="gap-2 border-emerald-500/50 text-emerald-500 hover:bg-emerald-500/10"
+              className="gap-2 border-emerald-500/50 text-emerald-500 hover:bg-emerald-500/10 my-6"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to home

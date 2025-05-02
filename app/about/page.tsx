@@ -1,4 +1,4 @@
-import { LandingHeader } from "@/components/landing/landing-header"
+import { AboutHeader } from "@/components/about/about-header"
 import { LandingFooter } from "@/components/landing/landing-footer"
 import { AboutHero } from "@/components/about/about-hero"
 import { AboutMission } from "@/components/about/about-mission"
@@ -11,7 +11,7 @@ import { PageTransition } from "@/components/ui/page-transition"
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#101827]">
-      <LandingHeader />
+      <AboutHeader />
       <PageTransition>
         <AboutHero />
         <AboutMission />

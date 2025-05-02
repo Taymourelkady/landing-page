@@ -4,54 +4,34 @@ import type React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Logo } from "@/components/ui/logo"
 
-export function LandingHeader() {
+export function AboutHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
 
   const navItems = [
-    { label: "Features", href: "#features" },
-    { label: "Demo", href: "#demo" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Features", href: "/landing#features" },
+    { label: "Demo", href: "/landing#demo" },
+    { label: "Pricing", href: "/landing#pricing" },
     { label: "About", href: "/about" },
   ]
 
-  // Function to handle smooth scrolling for hash links
-  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Only handle hash links on the current page
-    if (href.startsWith("#")) {
-      e.preventDefault()
+  // Function to handle navigation to landing page with hash
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
 
-      const targetId = href.substring(1)
-      const element = document.getElementById(targetId)
-
-      if (element) {
-        // Get header height for offset
-        const header = document.querySelector("header")
-        const headerHeight = header ? header.getBoundingClientRect().height : 0
-
-        // Calculate position
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY
-        const offsetPosition = elementPosition - headerHeight - 20
-
-        // Scroll
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        })
-
-        // Update URL without triggering a scroll
-        window.history.pushState(null, "", href)
-
-        // Close mobile menu if open
-        if (isMenuOpen) {
-          setIsMenuOpen(false)
-        }
-      }
+    // Close mobile menu if open
+    if (isMenuOpen) {
+      setIsMenuOpen(false)
     }
+
+    // Navigate to the landing page with the hash
+    router.push(href)
   }
 
   return (
@@ -64,23 +44,25 @@ export function LandingHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) =>
-            item.href.startsWith("#") ? (
+            item.href === "/about" ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`text-sm font-medium transition-colors hover:text-white ${
+                  item.href === "/about" ? "text-white" : "text-gray-300"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ) : (
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleHashClick(e, item.href)}
+                onClick={(e) => handleNavigation(e, item.href)}
                 className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
               >
                 {item.label}
               </a>
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
             ),
           )}
         </nav>
@@ -101,24 +83,25 @@ export function LandingHeader() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A1F2E] border-gray-700">
               <nav className="flex flex-col gap-4 mt-8">
                 {navItems.map((item) =>
-                  item.href.startsWith("#") ? (
+                  item.href === "/about" ? (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={`text-lg font-medium hover:text-emerald-500 ${
+                        item.href === "/about" ? "text-white" : "text-gray-300"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
                     <a
                       key={item.label}
                       href={item.href}
-                      onClick={(e) => handleHashClick(e, item.href)}
+                      onClick={(e) => handleNavigation(e, item.href)}
                       className="text-lg font-medium text-white hover:text-emerald-500"
                     >
                       {item.label}
                     </a>
-                  ) : (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-lg font-medium text-white hover:text-emerald-500"
-                    >
-                      {item.label}
-                    </Link>
                   ),
                 )}
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>

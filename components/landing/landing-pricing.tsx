@@ -56,7 +56,7 @@ export function LandingPricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-20">
+    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-24">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-4">

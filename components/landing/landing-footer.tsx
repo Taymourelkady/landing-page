@@ -1,16 +1,24 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Logo } from "@/components/ui/logo"
 
 export function LandingFooter() {
+  const pathname = usePathname()
+  const isAboutPage = pathname === "/about"
   const currentYear = new Date().getFullYear()
+
+  // Determine the base path for links
+  const basePath = isAboutPage ? "/landing" : ""
 
   const footerLinks = [
     {
       title: "Product",
       links: [
-        { label: "Features", href: "#features" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "Demo", href: "#demo" },
+        { label: "Features", href: `${basePath}#features` },
+        { label: "Pricing", href: `${basePath}#pricing` },
+        { label: "Demo", href: `${basePath}#demo` },
         { label: "Roadmap", href: "/roadmap" },
       ],
     },
