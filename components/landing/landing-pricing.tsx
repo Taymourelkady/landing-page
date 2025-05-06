@@ -134,7 +134,7 @@ export function LandingPricing() {
                             : "border-gray-600 text-white hover:bg-gray-800"
                       }`}
                     >
-                      Contact Sales
+                      Start Free trail
                     </Button>
                   </Link>
                 </CardFooter>

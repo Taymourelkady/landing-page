@@ -41,7 +41,7 @@ export function AboutUseCases() {
   ]
 
   return (
-    <section id="use-cases" className="py-20 bg-[#0c1420]">
+    <section id="use-cases" className="py-20 bg-[#0c1420] scroll-mt-24">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Use Cases</h2>

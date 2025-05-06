@@ -112,6 +112,15 @@ export function LandingHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
+          {/* Sign In Link */}
+          <Link
+            href="/signin"
+            className="hidden md:block text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-emerald-500/10 px-3 py-2 rounded-md"
+          >
+            Sign In
+          </Link>
+
+          {/* Book a Demo Button */}
           <Link href="/contact">
             <Button className="hidden md:flex bg-emerald-500 hover:bg-emerald-600">Book a Demo</Button>
           </Link>
@@ -162,6 +171,15 @@ export function LandingHeader() {
                     {item.label}
                   </Link>
                 ))}
+
+                {/* Sign In Link (Mobile) */}
+                <Link
+                  href="/signin"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-lg font-medium text-white hover:text-emerald-500"
+                >
+                  Sign In
+                </Link>
 
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full mt-2 bg-emerald-500 hover:bg-emerald-600">Book a Demo</Button>

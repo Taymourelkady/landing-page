@@ -36,7 +36,7 @@ export function LandingCTA() {
                 variant="outline"
                 className="gap-2 text-base px-8 border-gray-600 text-white hover:bg-gray-800"
               >
-                Contact Sales
+                Start Free Trail
               </Button>
             </Link>
           </div>
