@@ -2,35 +2,35 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Sparkles, Database } from "lucide-react"
+import { Check, Sparkles, Database, Info } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
 export function LandingPricing() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [isYearly, setIsYearly] = useState(false)
+  const [showTooltip, setShowTooltip] = useState<number | null>(null)
+
+  // Helper function to format price with thousand separators and optional decimal points
+  const formatPrice = (price: number): string => {
+    // Create formatter for the currency
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0, // Don't show decimal for whole numbers
+      maximumFractionDigits: 2, // Show up to 2 decimal places when needed
+    })
+
+    return formatter.format(price).replace("$", "$") // Replace with $ to ensure consistent formatting
+  }
 
   // Define the plans with both monthly and yearly pricing
   const plans = [
     {
       name: "Starter",
-      originalPrice: {
-        monthly: "$120",
-        yearly: "$1,200",
-      },
-      price: {
-        monthly: "$39.99",
-        yearly: "$399.90",
-      },
-      discount: {
-        monthly: "67%",
-        yearly: "67%",
-      },
-      period: {
-        monthly: "month",
-        yearly: "year",
-      },
-      specialOffer: "for the first 3 months",
+      standardMonthlyRate: 120,
+      discountedMonthlyRate: 39.99,
+      discountedMonths: 1,
       updateFrequency: "Daily Updates",
       features: [
         "1 data source",
@@ -42,22 +42,9 @@ export function LandingPricing() {
     },
     {
       name: "Growth",
-      originalPrice: {
-        monthly: "$900",
-        yearly: "$9,000",
-      },
-      price: {
-        monthly: "$500",
-        yearly: "$5,000",
-      },
-      discount: {
-        monthly: "44%",
-        yearly: "44%",
-      },
-      period: {
-        monthly: "month",
-        yearly: "year",
-      },
+      standardMonthlyRate: 900,
+      discountedMonthlyRate: 500,
+      discountedMonths: 3,
       updateFrequency: "Hourly Updates",
       features: [
         "Up to 5 data sources",
@@ -70,22 +57,9 @@ export function LandingPricing() {
     },
     {
       name: "Pro",
-      originalPrice: {
-        monthly: "$1,900",
-        yearly: "$19,000",
-      },
-      price: {
-        monthly: "$1,400",
-        yearly: "$14,000",
-      },
-      discount: {
-        monthly: "26%",
-        yearly: "26%",
-      },
-      period: {
-        monthly: "month",
-        yearly: "year",
-      },
+      standardMonthlyRate: 1900,
+      discountedMonthlyRate: 1400,
+      discountedMonths: 3,
       updateFrequency: "Live Updates",
       features: [
         "Unlimited data sources",
@@ -97,12 +71,41 @@ export function LandingPricing() {
     },
   ]
 
-  // Calculate savings for yearly plans
-  const calculateYearlySavings = (plan) => {
-    const monthlyPrice = Number.parseInt(plan.price.monthly.replace(/[^0-9.]/g, ""))
-    const yearlyPrice = Number.parseInt(plan.price.yearly.replace(/[^0-9.]/g, ""))
-    const monthlyCost = monthlyPrice * 12
-    return Math.round(((monthlyCost - yearlyPrice) / monthlyCost) * 100)
+  // Calculate monthly and yearly prices
+  const calculatePrices = (plan) => {
+    // Monthly display price is the discounted rate
+    const monthlyPrice = plan.discountedMonthlyRate
+
+    // Calculate discount percentage for monthly
+    const monthlyDiscount = Math.round(
+      ((plan.standardMonthlyRate - plan.discountedMonthlyRate) / plan.standardMonthlyRate) * 100,
+    )
+
+    // For yearly, calculate: (discounted months * discounted rate) + (10 - discounted months) * standard rate - 2 months free
+    const discountedPortion = plan.discountedMonths * plan.discountedMonthlyRate
+    const standardPortion = (10 - plan.discountedMonths) * plan.standardMonthlyRate
+    const yearlyPrice = discountedPortion + standardPortion
+
+    // Calculate yearly savings percentage compared to 12 months at standard rate
+    const standardYearlyTotal = 12 * plan.standardMonthlyRate
+    const yearlyDiscount = Math.round(((standardYearlyTotal - yearlyPrice) / standardYearlyTotal) * 100)
+
+    return {
+      monthly: {
+        display: formatPrice(monthlyPrice),
+        standard: formatPrice(plan.standardMonthlyRate),
+        discount: `${monthlyDiscount}%`,
+        period: "month",
+        discountPeriod: plan.discountedMonths > 1 ? `first ${plan.discountedMonths} months` : "first month",
+      },
+      yearly: {
+        display: formatPrice(yearlyPrice),
+        standard: formatPrice(12 * plan.standardMonthlyRate),
+        discount: `${yearlyDiscount}%`,
+        period: "year",
+        savings: Math.round((12 * plan.standardMonthlyRate - yearlyPrice) / plan.standardMonthlyRate),
+      },
+    }
   }
 
   return (
@@ -136,98 +139,127 @@ export function LandingPricing() {
             </button>
             <div className="flex flex-col items-start">
               <span className={`text-sm font-medium ${isYearly ? "text-white" : "text-gray-400"}`}>Yearly</span>
-              <span className="text-xs text-emerald-400">Save up to 20%</span>
+              <span className="text-xs text-emerald-400">Save 2 months free</span>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className="w-full"
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <Card
-                className={`flex flex-col w-full bg-[#1A1F2E] border-gray-700 transition-all duration-300 relative ${
-                  index === 1 ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
-                } ${hoveredCard === index ? "transform scale-105 shadow-xl border-emerald-500/70 z-10" : ""}`}
+          {plans.map((plan, index) => {
+            const prices = calculatePrices(plan)
+            const currentPricing = isYearly ? prices.yearly : prices.monthly
+
+            return (
+              <div
+                key={index}
+                className="w-full"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                {/* Badges attached to the card */}
-                {index === 1 && (
-                  <>
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full">
-                      Most Popular
-                    </div>
-                    <div className="absolute -top-3 right-4 z-20 bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
-                      Best Deal
-                    </div>
-                  </>
-                )}
-
-                <CardHeader className={`${index === 1 ? "pt-6" : ""}`}>
-                  <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-4xl font-bold text-emerald-500">
-                        {isYearly ? plan.price.yearly : plan.price.monthly}
-                      </span>
-                      <span className="text-gray-400">/{isYearly ? plan.period.yearly : plan.period.monthly}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-400 line-through">
-                        {isYearly ? plan.originalPrice.yearly : plan.originalPrice.monthly}/
-                        {isYearly ? plan.period.yearly : plan.period.monthly}
-                      </span>
-                      <span className="text-xs font-medium bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">
-                        Save {isYearly ? plan.discount.yearly : plan.discount.monthly}
-                      </span>
-                    </div>
-                    {isYearly && (
-                      <div className="mt-1 text-xs text-emerald-400">
-                        {calculateYearlySavings(plan)}% savings vs monthly billing
+                <Card
+                  className={`flex flex-col w-full bg-[#1A1F2E] border-gray-700 transition-all duration-300 relative ${
+                    index === 1 ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
+                  } ${hoveredCard === index ? "transform scale-105 shadow-xl border-emerald-500/70 z-10" : ""}`}
+                >
+                  {/* Badges attached to the card */}
+                  {index === 1 && (
+                    <>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                        Most Popular
                       </div>
-                    )}
-                    {index === 0 && <div className="mt-1 text-xs text-amber-400">{plan.specialOffer}</div>}
-                  </div>
+                      <div className="absolute -top-3 right-4 z-20 bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                        Best Deal
+                      </div>
+                    </>
+                  )}
 
-                  {/* Database update frequency */}
-                  <div className="mb-4 flex items-center gap-2 bg-emerald-500/10 px-3 py-2 rounded-md">
-                    <Database className="h-4 w-4 text-emerald-500" />
-                    <span className="text-sm text-emerald-400 font-medium">{plan.updateFrequency}</span>
-                  </div>
+                  <CardHeader className={`${index === 1 ? "pt-6" : ""}`}>
+                    <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-1">
+                    <div className="mb-6">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-4xl font-bold text-emerald-500">{currentPricing.display}</span>
+                        <span className="text-gray-400">/{currentPricing.period}</span>
 
-                  <ul className="space-y-2">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                        <span className="text-gray-300">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Link href="/contact" className="w-full">
-                    <Button
-                      variant={index === 1 ? "default" : "outline"}
-                      className={`w-full transition-all duration-300 ${
-                        index === 1
-                          ? "bg-emerald-500 hover:bg-emerald-600 text-white"
-                          : hoveredCard === index
-                            ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
-                            : "border-gray-600 text-white hover:bg-gray-800"
-                      }`}
-                    >
-                      Start Free Trial
-                    </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </div>
-          ))}
+                        {isYearly && (
+                          <div
+                            className="relative"
+                            onMouseEnter={() => setShowTooltip(index)}
+                            onMouseLeave={() => setShowTooltip(null)}
+                          >
+                            <Info className="h-4 w-4 text-gray-400 cursor-help" />
+                            {showTooltip === index && (
+                              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-3 bg-gray-800 text-white text-xs rounded-md shadow-lg w-64 z-50">
+                                <p className="font-medium mb-1">Yearly price breakdown:</p>
+                                <p>
+                                  {plan.discountedMonths} {plan.discountedMonths > 1 ? "months" : "month"} at{" "}
+                                  {formatPrice(plan.discountedMonthlyRate)}/month
+                                </p>
+                                <p>
+                                  {10 - plan.discountedMonths} months at {formatPrice(plan.standardMonthlyRate)}/month
+                                </p>
+                                <p>2 months free (standard rate)</p>
+                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-800"></div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-gray-400 line-through">
+                          {currentPricing.standard}/{currentPricing.period}
+                        </span>
+                        <span className="text-xs font-medium bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">
+                          Save {currentPricing.discount}
+                        </span>
+                      </div>
+                      {isYearly ? (
+                        <div className="mt-1 text-xs text-emerald-400">
+                          {currentPricing.savings} months free compared to monthly
+                        </div>
+                      ) : (
+                        <div className="mt-1 text-xs text-amber-400">
+                          For the {currentPricing.discountPeriod}, then {formatPrice(plan.standardMonthlyRate)}/month
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Database update frequency */}
+                    <div className="mb-4 flex items-center gap-2 bg-emerald-500/10 px-3 py-2 rounded-md">
+                      <Database className="h-4 w-4 text-emerald-500" />
+                      <span className="text-sm text-emerald-400 font-medium">{plan.updateFrequency}</span>
+                    </div>
+
+                    <ul className="space-y-2">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href="/contact" className="w-full">
+                      <Button
+                        variant={index === 1 ? "default" : "outline"}
+                        className={`w-full transition-all duration-300 ${
+                          index === 1
+                            ? "bg-emerald-500 hover:bg-emerald-600 text-white"
+                            : hoveredCard === index
+                              ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
+                              : "border-gray-600 text-white hover:bg-gray-800"
+                        }`}
+                      >
+                        Start Free Trial
+                      </Button>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </div>
+            )
+          })}
         </div>
 
         <div className="text-center mt-12 text-gray-300">
