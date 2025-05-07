@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { TransitionProvider } from "@/components/ui/transition-provider"
-import Script from "next/script"
+import { FaviconManager } from "@/components/ui/favicon-manager"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://treeo.ai"),
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
@@ -53,10 +53,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
         <meta name="theme-color" content="#16A249" />
-        <Script src="/favicon-handler.js" strategy="beforeInteractive" />
       </head>
       <body className="bg-[#101827] text-white min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
+          <FaviconManager />
           <TransitionProvider>{children}</TransitionProvider>
           <Toaster />
         </ThemeProvider>
