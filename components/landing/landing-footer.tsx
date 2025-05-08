@@ -19,16 +19,13 @@ export function LandingFooter() {
         { label: "Features", href: `${basePath}#features` },
         { label: "Pricing", href: `${basePath}#pricing` },
         { label: "Demo", href: `${basePath}#demo` },
-        { label: "Roadmap", href: "/roadmap" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { label: "Documentation", href: "/docs" },
+        { label: "Documentation", href: "/documentation" },
         { label: "Tutorials", href: "/tutorials" },
-        { label: "Blog", href: "/blog" },
-        { label: "Support", href: "/support" },
       ],
     },
     {
@@ -36,7 +33,7 @@ export function LandingFooter() {
       links: [
         { label: "About", href: "/about" },
         { label: "Careers", href: "/careers" },
-        { label: "Contact", href: "/contact" },
+        { label: "Contact Us", href: "/contact" },
         { label: "Privacy", href: "/privacy" },
       ],
     },
@@ -55,9 +52,6 @@ export function LandingFooter() {
               accessible to everyone in your organization.
             </p>
             <div className="flex gap-4">
-              <Link href="" className="text-gray-400 hover:text-white">
-                Twitter
-              </Link>
               <Link
                 href="https://www.linkedin.com/company/107068809/admin/dashboard/"
                 className="text-gray-400 hover:text-white"
