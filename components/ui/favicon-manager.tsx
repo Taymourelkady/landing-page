@@ -8,8 +8,7 @@ interface FaviconManagerProps {
 
 export function FaviconManager({ themeColor = "#16A249" }: FaviconManagerProps) {
   useEffect(() => {
-    // This function can be used to dynamically update the favicon
-    // or theme color based on user preferences or system settings
+    // Update theme color
     const updateThemeColor = () => {
       const themeColorMeta = document.querySelector('meta[name="theme-color"]')
       if (themeColorMeta) {
@@ -22,11 +21,29 @@ export function FaviconManager({ themeColor = "#16A249" }: FaviconManagerProps) 
       }
     }
 
-    updateThemeColor()
+    // Ensure SVG favicon is prioritized in browsers that support it
+    const ensureSvgFavicon = () => {
+      // Check if SVG favicon link already exists
+      const existingSvgLink = document.querySelector('link[rel="icon"][type="image/svg+xml"]')
 
-    // You could add event listeners here for theme changes if needed
+      // If no SVG favicon link exists, add it with highest priority
+      if (!existingSvgLink) {
+        const link = document.createElement("link")
+        link.rel = "icon"
+        link.href = "/favicon.png"
+        link.type = "image/svg+xml"
+
+        // Insert at the beginning of head to give it highest priority
+        const head = document.head
+        head.insertBefore(link, head.firstChild)
+      }
+    }
+
+    updateThemeColor()
+    ensureSvgFavicon()
+
     return () => {
-      // Cleanup if necessary
+      // No cleanup needed for this implementation
     }
   }, [themeColor])
 
