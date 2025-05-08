@@ -30,15 +30,6 @@ export function LandingCTA() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2 text-base px-8 border-gray-600 text-white hover:bg-gray-800"
-              >
-                Start Free Trail
-              </Button>
-            </Link>
           </div>
         </div>
       </div>

@@ -241,7 +241,8 @@ export function LandingPricing() {
                     </ul>
                   </CardContent>
                   <CardFooter>
-                    <Link href="/contact" className="w-full">
+                    {/* Updated to open in new tab */}
+                    <a href="https://app.treeo.ai" target="_blank" rel="noopener noreferrer" className="w-full">
                       <Button
                         variant={index === 1 ? "default" : "outline"}
                         className={`w-full transition-all duration-300 ${
@@ -254,7 +255,7 @@ export function LandingPricing() {
                       >
                         Start Free Trial
                       </Button>
-                    </Link>
+                    </a>
                   </CardFooter>
                 </Card>
               </div>

@@ -112,13 +112,15 @@ export function LandingHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
-          {/* Sign In Link */}
-          <Link
-            href="/signin"
+          {/* Sign In Link - Updated to open in new tab */}
+          <a
+            href="https://app.treeo.ai"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:block text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-emerald-500/10 px-3 py-2 rounded-md"
           >
             Sign In
-          </Link>
+          </a>
 
           {/* Book a Demo Button */}
           <Link href="/contact">
@@ -172,14 +174,15 @@ export function LandingHeader() {
                   </Link>
                 ))}
 
-                {/* Sign In Link (Mobile) */}
-                <Link
-                  href="/signin"
-                  onClick={() => setIsMenuOpen(false)}
+                {/* Sign In Link (Mobile) - Updated to open in new tab */}
+                <a
+                  href="https://app.treeo.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-lg font-medium text-white hover:text-emerald-500"
                 >
                   Sign In
-                </Link>
+                </a>
 
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full mt-2 bg-emerald-500 hover:bg-emerald-600">Book a Demo</Button>
