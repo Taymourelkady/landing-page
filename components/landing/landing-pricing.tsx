@@ -168,14 +168,14 @@ export function LandingPricing() {
                 >
                   {/* Badges attached to the card */}
                   {index === 1 && (
-                    <>
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full">
-                        Most Popular
-                      </div>
-                      <div className="absolute -top-3 right-4 z-20 bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
-                        Best Deal
-                      </div>
-                    </>
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-emerald-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                      Most Popular
+                    </div>
+                  )}
+                  {index === 0 && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 bg-amber-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                      Best Deal
+                    </div>
                   )}
 
                   <CardHeader className={`${index === 1 ? "pt-6" : ""}`}>
