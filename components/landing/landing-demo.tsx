@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MessageSquare, Database, Hash, AtSign, LineChart, FileCheck } from "lucide-react"
+import { ArrowRight, MessageSquare, Database, Hash, AtSign, LineChart, FileCheck, Table } from "lucide-react"
 import Link from "next/link"
 
 export function LandingDemo() {
@@ -19,7 +19,7 @@ export function LandingDemo() {
         <>
           <h3 className="text-2xl font-bold mb-3 text-white">Natural Language Queries</h3>
           <p className="text-gray-300 mb-6 h-[48px]">
-            Ask questions about your data in plain English and get immediate answers, no SQL knowledge required.
+            Ask questions about your data in plain English and get immediate answers, no SQL required.
           </p>
 
           <div className="space-y-4">
@@ -48,7 +48,7 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "https://i.imgur.com/g6f6AaP.png",
+      image: "https://i.imgur.com/5eXeFxJ.jpg",
     },
     {
       id: "metrics",
@@ -86,7 +86,7 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "https://i.imgur.com/of1Kclj.png",
+      image: "https://i.postimg.cc/yNzr8LFW/Screenshot-2025-05-16-at-10-05-04-AM.png",
     },
     {
       id: "profiling",
@@ -124,7 +124,7 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "https://i.imgur.com/9XDf1pa.png",
+      image: "https://i.postimg.cc/5tQYsMyk/Screenshot-2025-05-16-at-10-08-09-AM.png",
     },
     {
       id: "visualizations",
@@ -162,7 +162,47 @@ export function LandingDemo() {
           </div>
         </>
       ),
-      image: "https://i.imgur.com/UP76iM5.png",
+      image: "https://i.postimg.cc/PJT06TXW/Screenshot-2025-05-16-at-10-09-00-AM.png",
+    },
+    {
+      id: "spreadsheets",
+      title: "Built-in Spreadsheets",
+      description: "Work with your data directly in the platform without exporting.",
+      icon: <Table className="h-5 w-5" />,
+      content: (
+        <>
+          <h3 className="text-2xl font-bold mb-3 text-white">Built-in Spreadsheets</h3>
+          <p className="text-gray-300 mb-6 h-[48px]">
+            Analyze and manipulate your data with familiar spreadsheet tools, all within Treeo.
+          </p>
+
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="bg-emerald-500/20 p-2 rounded-full">
+                <Table className="h-5 w-5 text-emerald-500" />
+              </div>
+              <div>
+                <h4 className="font-medium text-white">Familiar Interface</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
+                  Use formulas, filters, and formatting just like your favorite spreadsheet app.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="bg-emerald-500/20 p-2 rounded-full">
+                <MessageSquare className="h-5 w-5 text-emerald-500" />
+              </div>
+              <div>
+                <h4 className="font-medium text-white">AI-Powered Analysis</h4>
+                <p className="text-gray-300 mb-6 h-[48px]">
+                  Ask questions about your spreadsheet data and get instant insights.
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+      image: "https://i.postimg.cc/wjj2w3hx/Screenshot-2025-05-16-at-10-10-12-AM.png",
     },
   ]
 
@@ -178,7 +218,7 @@ export function LandingDemo() {
         </div>
 
         <Tabs defaultValue="chat" value={activeTab} onValueChange={setActiveTab} className="max-w-5xl mx-auto">
-          <TabsList className="grid grid-cols-4 gap-2 mb-8 p-1 bg-[#0c1420]">
+          <TabsList className="grid grid-cols-5 gap-2 mb-8 p-1 bg-[#0c1420]">
             {demos.map((demo) => (
               <TabsTrigger
                 key={demo.id}

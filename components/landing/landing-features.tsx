@@ -1,6 +1,6 @@
 "use client"
 
-import { MessageSquare, Database, Hash, AtSign, LineChart, FileCheck } from "lucide-react"
+import { MessageSquare, Database, Hash, AtSign, LineChart, FileCheck, Table } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function LandingFeatures() {
@@ -38,6 +38,11 @@ export function LandingFeatures() {
       icon: <FileCheck className="h-10 w-10 text-emerald-500" />,
       title: "Data Profiling",
       description: "Identify and fix schema issues with our data profiler to ensure data quality and consistency.",
+    },
+    {
+      icon: <Table className="h-10 w-10 text-emerald-500" />,
+      title: "Spreadsheet Integration",
+      description: "Connect directly to your spreadsheets and analyze data without complex exports or imports.",
     },
   ]
 
