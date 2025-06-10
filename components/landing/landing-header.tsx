@@ -19,7 +19,10 @@ export function LandingHeader() {
     { label: "Pricing", href: "#pricing" },
   ]
 
-  const navItems = [{ label: "About", href: "/about" }]
+  const navItems = [
+    { label: "Design Partners", href: "/design-partners" },
+    { label: "About", href: "/about" },
+  ]
 
   // Function to handle smooth scrolling for hash links
   const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

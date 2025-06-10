@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Sparkles, Database, Info, Zap, Shield, Clock, Users, MessageSquare } from "lucide-react"
+import { Check, Sparkles, Database, Zap, Shield, Clock, Users, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -43,7 +43,7 @@ export function LandingPricing() {
         "Unlimited metrics",
       ],
       icon: <Zap className="h-10 w-10 text-blue-500" />,
-      buttonText: "Start Free Trial",
+      buttonText: "Join our design partner program",
       buttonVariant: "outline" as const,
       highlight: false,
     },
@@ -64,7 +64,7 @@ export function LandingPricing() {
         "Email support",
       ],
       icon: <Clock className="h-10 w-10 text-emerald-500" />,
-      buttonText: "Start Free Trial",
+      buttonText: "Join our design partner program",
       buttonVariant: "default" as const,
       highlight: true,
     },
@@ -84,7 +84,7 @@ export function LandingPricing() {
         "Better personalization",
       ],
       icon: <Shield className="h-10 w-10 text-purple-500" />,
-      buttonText: "Start Free Trial",
+      buttonText: "Join our design partner program",
       buttonVariant: "outline" as const,
       highlight: false,
     },
@@ -103,7 +103,7 @@ export function LandingPricing() {
         "Priority support",
       ],
       icon: <Users className="h-10 w-10 text-gray-400" />,
-      buttonText: "Contact Sales",
+      buttonText: "Join our design partner program",
       buttonVariant: "outline" as const,
       highlight: false,
     },
@@ -126,7 +126,7 @@ export function LandingPricing() {
             <button
               onClick={() => setIsYearly(!isYearly)}
               className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-              style={{ backgroundColor: isYearly ? "#10b981" : "#374151" }}
+              style={{ backgroundColor: isYearly ? "#22C55E" : "#374151" }}
               aria-checked={isYearly}
               role="switch"
             >
@@ -190,8 +190,6 @@ export function LandingPricing() {
                       )}
                     </div>
 
-
-
                     {/* Data Update Frequency */}
                     <div className="mb-4 flex items-center gap-2 bg-emerald-500/10 px-3 py-2 rounded-md">
                       <Database className="h-4 w-4 text-emerald-500" />
@@ -215,10 +213,10 @@ export function LandingPricing() {
 
                   <CardFooter className="pt-4">
                     {index !== 3 ? (
-                      <a href="https://app.treeo.ai" target="_blank" rel="noopener noreferrer" className="w-full">
+                      <Link href="/contact" className="w-full">
                         <Button
                           variant={plan.buttonVariant}
-                          className={`w-full transition-all duration-300 ${
+                          className={`w-full px-6 py-3 transition-all duration-300 ${
                             plan.highlight
                               ? "bg-emerald-500 hover:bg-emerald-600 text-white"
                               : hoveredCard === index
@@ -228,12 +226,12 @@ export function LandingPricing() {
                         >
                           {plan.buttonText}
                         </Button>
-                      </a>
+                      </Link>
                     ) : (
                       <Link href="/contact" className="w-full">
                         <Button
                           variant="outline"
-                          className={`w-full transition-all duration-300 ${
+                          className={`w-full px-6 py-3 transition-all duration-300 ${
                             hoveredCard === index
                               ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
                               : "border-gray-600 text-white hover:bg-gray-800"

@@ -191,6 +191,7 @@ export function ContactForm() {
                   <SelectItem value="pricing">Pricing information</SelectItem>
                   <SelectItem value="technical">Technical questions</SelectItem>
                   <SelectItem value="partnership">Partnership opportunities</SelectItem>
+                  <SelectItem value="design_partner">Joining the design partner program</SelectItem>
                   <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
