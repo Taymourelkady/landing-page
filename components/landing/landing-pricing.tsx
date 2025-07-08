@@ -10,6 +10,9 @@ export function LandingPricing() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [isYearly, setIsYearly] = useState(false)
 
+  // Toggle this to show/hide the blur overlay
+  const showPricingBlur = true;
+
   // Helper function to format price
   const formatPrice = (price: number | string): string => {
     if (typeof price === "string") return price
@@ -63,7 +66,7 @@ export function LandingPricing() {
         "Unlimited queries",
         "Email support",
       ],
-      icon: <Clock className="h-10 w-10 text-emerald-500" />,
+      icon: <Clock className="h-10 w-10 text-treeo-500" />,
       buttonText: "Join our design partner program",
       buttonVariant: "default" as const,
       highlight: true,
@@ -74,7 +77,7 @@ export function LandingPricing() {
       yearlyPrice: 3990, // 399 * 12 - 2 months free = 399 * 10
       description: "For professional teams",
       badge: "Most Popular",
-      badgeColor: "bg-emerald-500",
+      badgeColor: "bg-treeo-500",
       features: [
         "5 data sources",
         "Hourly updates",
@@ -110,12 +113,23 @@ export function LandingPricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-24">
-      <div className="container">
+    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-24 relative">
+      {/* Toggleable Blur Overlay covers the entire section including all gaps */}
+      {showPricingBlur && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center backdrop-blur-[8px] bg-black/30">
+          <div className="text-3xl md:text-5xl font-extrabold text-white mb-2 text-center drop-shadow-lg">
+            Pricing plans are coming soon
+          </div>
+          <Link href="/contact" className="text-treeo-500 hover:underline font-semibold text-base md:text-lg text-center">
+            Sign up to hear first
+          </Link>
+        </div>
+      )}
+      <div className="container relative">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-4">
-            <Sparkles className="h-4 w-4 text-emerald-500" />
-            <span className="text-emerald-400">Simple, Transparent Pricing</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-treeo-500/20 px-4 py-1.5 text-sm font-medium mb-4">
+            <Sparkles className="h-4 w-4 text-treeo-500" />
+            <span className="text-treeo-400">Simple, Transparent Pricing</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Choose Your Plan</h2>
           <p className="text-xl text-gray-300 mb-8">Start with a 14-day free trial. No credit card required.</p>
@@ -125,7 +139,7 @@ export function LandingPricing() {
             <span className={`text-sm font-medium ${!isYearly ? "text-white" : "text-gray-400"}`}>Monthly</span>
             <button
               onClick={() => setIsYearly(!isYearly)}
-              className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+              className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-treeo-500"
               style={{ backgroundColor: isYearly ? "#22C55E" : "#374151" }}
               aria-checked={isYearly}
               role="switch"
@@ -138,7 +152,7 @@ export function LandingPricing() {
             </button>
             <div className="flex flex-col items-start">
               <span className={`text-sm font-medium ${isYearly ? "text-white" : "text-gray-400"}`}>Yearly</span>
-              <span className="text-xs text-emerald-400">Save 2 months free</span>
+              <span className="text-xs text-treeo-400">Save 2 months free</span>
             </div>
           </div>
         </div>
@@ -157,13 +171,13 @@ export function LandingPricing() {
               >
                 <Card
                   className={`flex flex-col w-full h-full bg-[#1A1F2E] border-gray-700 transition-all duration-300 relative ${
-                    plan.highlight ? "border-emerald-500 shadow-lg shadow-emerald-500/10" : ""
-                  } ${hoveredCard === index ? "transform scale-105 shadow-xl border-emerald-500/70 z-10" : ""}`}
+                    plan.highlight ? "border-treeo-500 shadow-lg shadow-treeo-500/10" : ""
+                  } ${hoveredCard === index ? "transform scale-105 shadow-xl border-treeo-500/70 z-10" : ""}`}
                 >
                   {/* Badge */}
                   {plan.badge && (
                     <div
-                      className={`absolute -top-3 left-1/2 -translate-x-1/2 z-20 ${plan.badgeColor} text-white text-xs font-medium px-3 py-1 rounded-full`}
+                      className={`absolute -top-3 left-1/2 -translate-x-1/2 z-10 ${plan.badgeColor} text-white text-xs font-medium px-3 py-1 rounded-full`}
                     >
                       {plan.badge}
                     </div>
@@ -177,23 +191,23 @@ export function LandingPricing() {
                   <CardContent className="flex-1">
                     <div className="mb-6">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-4xl font-bold text-emerald-500">{formatPrice(price)}</span>
+                        <span className="text-4xl font-bold text-treeo-500">{formatPrice(price)}</span>
                         {typeof price === "number" && price > 0 && <span className="text-gray-400">/{period}</span>}
                       </div>
                       <div className="text-sm text-gray-400">{plan.description}</div>
 
                       {/* Yearly savings message */}
                       {isYearly && typeof plan.monthlyPrice === "number" && plan.monthlyPrice > 0 && (
-                        <div className="mt-1 text-xs text-emerald-400">
+                        <div className="mt-1 text-xs text-treeo-400">
                           Save {formatPrice(plan.monthlyPrice * 2)} compared to monthly
                         </div>
                       )}
                     </div>
 
                     {/* Data Update Frequency */}
-                    <div className="mb-4 flex items-center gap-2 bg-emerald-500/10 px-3 py-2 rounded-md">
-                      <Database className="h-4 w-4 text-emerald-500" />
-                      <span className="text-sm text-emerald-400 font-medium">
+                    <div className="mb-4 flex items-center gap-2 bg-treeo-500/10 px-3 py-2 rounded-md">
+                      <Database className="h-4 w-4 text-treeo-500" />
+                      <span className="text-sm text-treeo-400 font-medium">
                         {index === 0 && "Daily Updates"}
                         {index === 1 && "Daily Updates"}
                         {index === 2 && "Hourly Updates"}
@@ -204,7 +218,7 @@ export function LandingPricing() {
                     <ul className="space-y-2">
                       {plan.features.map((feature, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <Check className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                          <Check className="h-5 w-5 text-treeo-500 shrink-0 mt-0.5" />
                           <span className="text-gray-300">{feature}</span>
                         </li>
                       ))}
@@ -218,9 +232,9 @@ export function LandingPricing() {
                           variant={plan.buttonVariant}
                           className={`w-full px-6 py-3 transition-all duration-300 ${
                             plan.highlight
-                              ? "bg-emerald-500 hover:bg-emerald-600 text-white"
+                              ? "bg-treeo-500 hover:bg-treeo-600 text-white"
                               : hoveredCard === index
-                                ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
+                                ? "border-treeo-500 text-treeo-500 hover:bg-treeo-500/10"
                                 : "border-gray-600 text-white hover:bg-gray-800"
                           }`}
                         >
@@ -233,7 +247,7 @@ export function LandingPricing() {
                           variant="outline"
                           className={`w-full px-6 py-3 transition-all duration-300 ${
                             hoveredCard === index
-                              ? "border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
+                              ? "border-treeo-500 text-treeo-500 hover:bg-treeo-500/10"
                               : "border-gray-600 text-white hover:bg-gray-800"
                           }`}
                         >
@@ -252,7 +266,7 @@ export function LandingPricing() {
         <div className="max-w-3xl mx-auto mt-16 bg-[#1A1F2E] border border-gray-700 rounded-lg p-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-shrink-0">
-              <MessageSquare className="h-12 w-12 text-emerald-500" />
+              <MessageSquare className="h-12 w-12 text-treeo-500" />
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-white mb-2">Unlimited Querying, Always</h3>
@@ -267,7 +281,7 @@ export function LandingPricing() {
         <div className="text-center mt-12 text-gray-300">
           <p className="mt-2">
             Need a custom plan?{" "}
-            <Link href="/contact" className="text-emerald-500 hover:underline">
+            <Link href="/contact" className="text-treeo-500 hover:underline">
               Contact us
             </Link>{" "}
             for enterprise pricing.
