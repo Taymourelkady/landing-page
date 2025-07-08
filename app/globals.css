@@ -80,7 +80,7 @@
 
 /* Add a focus style that's more visible */
 .focus-visible:focus-visible {
-  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-background;
+  @apply outline-none ring-2 ring-treeo-500 ring-offset-2 ring-offset-background;
 }
 
 /* No-scroll contact page styles */
@@ -152,7 +152,7 @@
 
 /* Dropdown menu styles */
 .dropdown-menu-item {
-  @apply flex items-center px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-emerald-500/20 rounded-md transition-colors;
+  @apply flex items-center px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-treeo-500/20 rounded-md transition-colors;
 }
 
 /* Dropdown arrow animation */

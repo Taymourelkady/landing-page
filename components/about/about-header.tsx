@@ -6,7 +6,7 @@ import { navItems, dropdownItems, sharedHeaderOptions } from "@/components/ui/he
 export function AboutHeader() {
   const pageNavItems = [
     ...navItems,
-    { label: "About", href: "/about", isActive: true },
+
   ]
 
   return (

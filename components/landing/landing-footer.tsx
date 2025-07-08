@@ -32,7 +32,6 @@ export function LandingFooter() {
       title: "Company",
       links: [
         { label: "About", href: "/about" },
-        { label: "Careers", href: "/careers" },
         { label: "Contact Us", href: "/contact" },
         { label: "Privacy", href: "/privacy" },
       ],
@@ -52,12 +51,14 @@ export function LandingFooter() {
               accessible to everyone in your organization.
             </p>
             <div className="flex gap-4">
-              <Link
-                href="https://www.linkedin.com/company/107068809/admin/dashboard/"
+              <a
+                href="https://www.linkedin.com/company/treeo-ai/posts/?feedView=all"
                 className="text-gray-400 hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 LinkedIn
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -80,14 +81,8 @@ export function LandingFooter() {
         <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">© {currentYear} Treeo. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/terms" className="text-sm text-gray-400 hover:text-white">
-              Terms of Service
-            </Link>
             <Link href="/privacy" className="text-sm text-gray-400 hover:text-white">
               Privacy Policy
-            </Link>
-            <Link href="/cookies" className="text-sm text-gray-400 hover:text-white">
-              Cookie Policy
             </Link>
           </div>
         </div>

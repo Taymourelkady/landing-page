@@ -20,7 +20,7 @@ export function DebugSectionIds() {
       <ul className="space-y-1">
         {sections.map((id) => (
           <li key={id}>
-            <a href={`#${id}`} className="text-emerald-400 hover:underline">
+            <a href={`#${id}`} className="text-treeo-400 hover:underline">
               #{id}
             </a>
           </li>

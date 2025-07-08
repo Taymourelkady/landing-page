@@ -50,7 +50,7 @@ export function LoginForm() {
                 <div className="grid gap-2">
                   <div className="flex items-center justify-between">
                     <Label htmlFor="password">Password</Label>
-                    <Link href="/contact" className="text-xs text-emerald-500 hover:underline">
+                    <Link href="/contact" className="text-xs text-treeo-500 hover:underline">
                       Forgot password?
                     </Link>
                   </div>
@@ -62,7 +62,7 @@ export function LoginForm() {
                     Remember me
                   </Label>
                 </div>
-                <Button type="submit" className="w-full mt-2 bg-emerald-500 hover:bg-emerald-600" disabled={isLoading}>
+                <Button type="submit" className="w-full mt-2 bg-treeo-500 hover:bg-treeo-600" disabled={isLoading}>
                   {isLoading ? "Logging in..." : "Log in"}
                 </Button>
               </div>
@@ -107,7 +107,7 @@ export function LoginForm() {
 
           <div className="mt-6 flex items-center justify-center gap-2">
             <span className="text-sm text-muted-foreground">Don't have an account?</span>
-            <Link href="/contact" className="text-sm text-emerald-500 hover:underline">
+            <Link href="/contact" className="text-sm text-treeo-500 hover:underline">
               Contact Sales
             </Link>
           </div>
@@ -115,7 +115,7 @@ export function LoginForm() {
       </CardContent>
       <CardFooter className="bg-muted/30 border-t border-border/40 flex flex-col p-4">
         <div className="flex items-center gap-2 text-sm">
-          <Sparkles className="h-4 w-4 text-emerald-500" />
+          <Sparkles className="h-4 w-4 text-treeo-500" />
           <span>Unlock the power of your data with Treeo</span>
         </div>
       </CardFooter>
