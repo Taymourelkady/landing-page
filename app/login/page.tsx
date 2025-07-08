@@ -16,7 +16,11 @@ export default function LoginPage() {
             <Button
               variant="outline"
               size="sm"
+<<<<<<< HEAD
               className="gap-2 border-treeo-500/50 text-treeo-500 hover:bg-treeo-500/10"
+=======
+              className="gap-2 border-emerald-500/50 text-emerald-500 hover:bg-emerald-500/10"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
             >
               <ArrowLeft className="h-4 w-4" />
               Back to home

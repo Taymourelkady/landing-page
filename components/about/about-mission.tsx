@@ -4,22 +4,38 @@ import { Database, MessageSquare, Hash, LineChart } from "lucide-react"
 export function AboutMission() {
   const problems = [
     {
+<<<<<<< HEAD
       icon: <Database className="h-8 w-8 text-treeo-500" />,
+=======
+      icon: <Database className="h-8 w-8 text-emerald-500" />,
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
       title: "Data Silos",
       description: "Teams work with different data sources, leading to inconsistent metrics and definitions.",
     },
     {
+<<<<<<< HEAD
       icon: <Hash className="h-8 w-8 text-treeo-500" />,
+=======
+      icon: <Hash className="h-8 w-8 text-emerald-500" />,
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
       title: "Metric Confusion",
       description: "Different departments define and calculate key metrics in different ways.",
     },
     {
+<<<<<<< HEAD
       icon: <MessageSquare className="h-8 w-8 text-treeo-500" />,
+=======
+      icon: <MessageSquare className="h-8 w-8 text-emerald-500" />,
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
       title: "Communication Gaps",
       description: "Technical and non-technical teams struggle to communicate about data needs.",
     },
     {
+<<<<<<< HEAD
       icon: <LineChart className="h-8 w-8 text-treeo-500" />,
+=======
+      icon: <LineChart className="h-8 w-8 text-emerald-500" />,
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
       title: "Validation Overhead",
       description: "Teams spend excessive time validating data rather than deriving insights.",
     },
@@ -39,7 +55,11 @@ export function AboutMission() {
           {problems.map((problem, index) => (
             <Card
               key={index}
+<<<<<<< HEAD
               className="bg-[#1A1F2E] border-gray-700 hover:border-treeo-500/50 transition-colors h-full"
+=======
+              className="bg-[#1A1F2E] border-gray-700 hover:border-emerald-500/50 transition-colors h-full"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
             >
               <CardContent className="pt-6">
                 <div className="mb-4">{problem.icon}</div>
@@ -62,7 +82,11 @@ export function AboutMission() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <div className="flex items-center gap-2 mb-4">
+<<<<<<< HEAD
                     <Hash className="h-5 w-5 text-treeo-500" />
+=======
+                    <Hash className="h-5 w-5 text-emerald-500" />
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                     <h4 className="font-semibold text-lg text-white">Metrics Dictionary</h4>
                   </div>
                   <p className="text-gray-300 mb-4">
@@ -70,21 +94,33 @@ export function AboutMission() {
                     same definitions.
                   </p>
                   <div className="bg-[#1A1F2E] p-4 rounded-lg border border-gray-700">
+<<<<<<< HEAD
                     <code className="text-sm text-treeo-400">
+=======
+                    <code className="text-sm text-emerald-400">
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                       What was our #monthly_active_users for Q1 compared to Q4 last year?
                     </code>
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-4">
+<<<<<<< HEAD
                     <MessageSquare className="h-5 w-5 text-treeo-500" />
+=======
+                    <MessageSquare className="h-5 w-5 text-emerald-500" />
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                     <h4 className="font-semibold text-lg text-white">Natural Language Interface</h4>
                   </div>
                   <p className="text-gray-300 mb-4">
                     Ask questions in plain English and get immediate answers, visualizations, and insights.
                   </p>
                   <div className="bg-[#1A1F2E] p-4 rounded-lg border border-gray-700">
+<<<<<<< HEAD
                     <code className="text-sm text-treeo-400">
+=======
+                    <code className="text-sm text-emerald-400">
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                       Show me the correlation between customer support tickets and churn rate by plan type
                     </code>
                   </div>

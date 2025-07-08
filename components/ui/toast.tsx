@@ -35,7 +35,11 @@ export function Toast({ title, description, variant = "default", open, onClose }
     <div
       className={`fixed bottom-4 right-4 z-50 max-w-md rounded-lg shadow-lg transition-all duration-300 ${
         open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+<<<<<<< HEAD
       } ${variant === "destructive" ? "bg-red-600" : "bg-treeo-600"}`}
+=======
+      } ${variant === "destructive" ? "bg-red-600" : "bg-emerald-600"}`}
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
     >
       <div className="flex items-start gap-4 p-4">
         <div className="flex-1">

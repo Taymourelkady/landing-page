@@ -53,6 +53,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+<<<<<<< HEAD
         treeo: {
           50: "#f0fdf4",
           100: "#dcfce7",
@@ -66,6 +67,8 @@ const config = {
           900: "#14532d",
           950: "#052e16",
         },
+=======
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
       },
       borderRadius: {
         lg: "var(--radius)",

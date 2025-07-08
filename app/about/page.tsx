@@ -7,6 +7,10 @@ import { AboutHero } from "@/components/about/about-hero"
 import { AboutMission } from "@/components/about/about-mission"
 import { AboutUseCases } from "@/components/about/about-use-cases"
 import { AboutProcess } from "@/components/about/about-process"
+<<<<<<< HEAD
+=======
+import { AboutTeam } from "@/components/about/about-team"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
 import { AboutCTA } from "@/components/about/about-cta"
 import { PageTransition } from "@/components/ui/page-transition"
 
@@ -28,6 +32,10 @@ export default function AboutPage() {
         <AboutMission />
         <AboutProcess />
         <AboutUseCases />
+<<<<<<< HEAD
+=======
+        <AboutTeam />
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
         <AboutCTA />
       </PageTransition>
       <LandingFooter />
