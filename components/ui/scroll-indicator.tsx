@@ -53,26 +53,15 @@ export function ScrollIndicator({ isVisible, targetId }: ScrollIndicatorProps) {
           exit={{ opacity: 0, x: 20 }}
           transition={{ duration: 0.3 }}
         >
-<<<<<<< HEAD
           <div className="bg-treeo-500/20 backdrop-blur-sm rounded-full p-3 border border-treeo-500/30">
             <div className="h-32 w-1 bg-gray-700 rounded-full relative">
               <div
                 className="absolute top-0 left-0 w-full bg-treeo-500 rounded-full transition-all duration-100"
-=======
-          <div className="bg-emerald-500/20 backdrop-blur-sm rounded-full p-3 border border-emerald-500/30">
-            <div className="h-32 w-1 bg-gray-700 rounded-full relative">
-              <div
-                className="absolute top-0 left-0 w-full bg-emerald-500 rounded-full transition-all duration-100"
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 style={{ height: `${position * 100}%` }}
               />
             </div>
             <div className="flex justify-center mt-2">
-<<<<<<< HEAD
               <ArrowDown className="h-4 w-4 text-treeo-500 animate-bounce" />
-=======
-              <ArrowDown className="h-4 w-4 text-emerald-500 animate-bounce" />
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
             </div>
           </div>
         </motion.div>

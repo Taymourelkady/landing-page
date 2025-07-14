@@ -50,11 +50,7 @@ export function LandingTestimonials() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="h-full border-border/40">
               <CardContent className="pt-6">
-<<<<<<< HEAD
                 <Quote className="h-8 w-8 text-treeo-500/40 mb-4" />
-=======
-                <Quote className="h-8 w-8 text-emerald-500/40 mb-4" />
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 <p className="text-lg mb-6">{testimonial.quote}</p>
                 <div className="flex items-center gap-3">
                   <Avatar>

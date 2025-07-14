@@ -55,19 +55,11 @@ export function AboutUseCases() {
             <div className="space-y-6">
               {chatModeUsers.map((user) => (
                 <div key={user.role} className="flex gap-4">
-<<<<<<< HEAD
                   <div className="flex-shrink-0 h-12 w-12 bg-[#1A1F2E] rounded-lg flex items-center justify-center text-xl font-bold text-treeo-500">
                     {user.number}
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-treeo-500">{user.role}</h4>
-=======
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#1A1F2E] rounded-lg flex items-center justify-center text-xl font-bold text-emerald-500">
-                    {user.number}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-emerald-500">{user.role}</h4>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                     <p className="text-gray-300">{user.description}</p>
                   </div>
                 </div>
@@ -81,19 +73,11 @@ export function AboutUseCases() {
             <div className="space-y-6">
               {scientistModeUsers.map((user) => (
                 <div key={user.role} className="flex gap-4">
-<<<<<<< HEAD
                   <div className="flex-shrink-0 h-12 w-12 bg-[#1A1F2E] rounded-lg flex items-center justify-center text-xl font-bold text-treeo-500">
                     {user.number}
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-treeo-500">{user.role}</h4>
-=======
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#1A1F2E] rounded-lg flex items-center justify-center text-xl font-bold text-emerald-500">
-                    {user.number}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-emerald-500">{user.role}</h4>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                     <p className="text-gray-300">{user.description}</p>
                   </div>
                 </div>
@@ -107,11 +91,7 @@ export function AboutUseCases() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#1A1F2E] p-6 rounded-lg border border-gray-700">
-<<<<<<< HEAD
               <h4 className="text-xl font-semibold mb-3 text-treeo-500">Business Teams</h4>
-=======
-              <h4 className="text-xl font-semibold mb-3 text-emerald-500">Business Teams</h4>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               <ul className="space-y-2 text-gray-300">
                 <li>• Access data without SQL knowledge</li>
                 <li>• Create visualizations with simple commands</li>
@@ -121,11 +101,7 @@ export function AboutUseCases() {
             </div>
 
             <div className="bg-[#1A1F2E] p-6 rounded-lg border border-gray-700">
-<<<<<<< HEAD
               <h4 className="text-xl font-semibold mb-3 text-treeo-500">Data Teams</h4>
-=======
-              <h4 className="text-xl font-semibold mb-3 text-emerald-500">Data Teams</h4>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               <ul className="space-y-2 text-gray-300">
                 <li>• Establish consistent metric definitions</li>
                 <li>• Reduce time spent on ad-hoc requests</li>
@@ -135,11 +111,7 @@ export function AboutUseCases() {
             </div>
 
             <div className="bg-[#1A1F2E] p-6 rounded-lg border border-gray-700">
-<<<<<<< HEAD
               <h4 className="text-xl font-semibold mb-3 text-treeo-500">Leadership</h4>
-=======
-              <h4 className="text-xl font-semibold mb-3 text-emerald-500">Leadership</h4>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               <ul className="space-y-2 text-gray-300">
                 <li>• Get consistent reporting across teams</li>
                 <li>• Reduce decision-making bottlenecks</li>

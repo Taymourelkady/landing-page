@@ -34,22 +34,14 @@ export function AboutProcess() {
 
         <div className="relative">
           {/* Connection line */}
-<<<<<<< HEAD
           <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-treeo-500/30 hidden md:block" />
-=======
-          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-emerald-500/30 hidden md:block" />
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
 
           <div className="space-y-12 md:space-y-0">
             {steps.map((step, index) => (
               <div key={index} className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 {/* Step number with circle */}
                 <div
-<<<<<<< HEAD
                   className={`hidden md:flex absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-treeo-500 text-white items-center justify-center font-bold text-lg`}
-=======
-                  className={`hidden md:flex absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-emerald-500 text-white items-center justify-center font-bold text-lg`}
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 >
                   {step.number}
                 </div>
@@ -57,11 +49,7 @@ export function AboutProcess() {
                 {/* Content */}
                 <div className={`${index % 2 === 0 ? "md:text-right md:pr-16" : "md:order-2 md:text-left md:pl-16"}`}>
                   <div className="flex md:hidden items-center gap-4 mb-4">
-<<<<<<< HEAD
                     <div className="flex h-10 w-10 rounded-full bg-treeo-500 text-white items-center justify-center font-bold">
-=======
-                    <div className="flex h-10 w-10 rounded-full bg-emerald-500 text-white items-center justify-center font-bold">
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                       {step.number}
                     </div>
                     <h3 className="text-2xl font-bold text-white">{step.title}</h3>
@@ -77,11 +65,7 @@ export function AboutProcess() {
                   className={`${index % 2 === 0 ? "md:order-2" : ""} bg-[#1A1F2E] rounded-lg p-6 border border-gray-700 shadow-lg h-64 flex items-center justify-center`}
                 >
                   <div className="text-center">
-<<<<<<< HEAD
                     <div className="text-treeo-500 text-6xl font-bold mb-2">{step.number}</div>
-=======
-                    <div className="text-emerald-500 text-6xl font-bold mb-2">{step.number}</div>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                     <p className="text-gray-400">Illustration for {step.title}</p>
                   </div>
                 </div>

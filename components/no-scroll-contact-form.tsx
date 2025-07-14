@@ -72,24 +72,15 @@ export function NoScrollContactForm() {
   if (isSubmitted) {
     return (
       <div className="bg-[#1A1F2E] rounded-lg p-8 text-center">
-<<<<<<< HEAD
         <div className="rounded-full bg-treeo-500/20 p-3 mb-4 mx-auto w-fit">
           <MessageSquare className="h-6 w-6 text-treeo-500" />
-=======
-        <div className="rounded-full bg-emerald-500/20 p-3 mb-4 mx-auto w-fit">
-          <MessageSquare className="h-6 w-6 text-emerald-500" />
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
         </div>
         <h2 className="text-2xl font-bold mb-2 text-white">Thank You!</h2>
         <p className="text-gray-300 mb-6">
           We've received your inquiry and will get back to you shortly. One of our team members will contact you within
           24 hours.
         </p>
-<<<<<<< HEAD
         <Button asChild className="bg-treeo-500 hover:bg-treeo-600">
-=======
-        <Button asChild className="bg-emerald-500 hover:bg-emerald-600">
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
           <Link href="/landing">Return to Home</Link>
         </Button>
       </div>
@@ -217,11 +208,7 @@ export function NoScrollContactForm() {
 
         <div className="flex items-center justify-between pt-2">
           <p className="text-xs text-gray-400">By submitting, you agree to our Terms of Service.</p>
-<<<<<<< HEAD
           <Button type="submit" className="bg-treeo-500 hover:bg-treeo-600 text-white px-8" disabled={isLoading}>
-=======
-          <Button type="submit" className="bg-emerald-500 hover:bg-emerald-600 text-white px-8" disabled={isLoading}>
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
