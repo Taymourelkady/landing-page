@@ -85,7 +85,7 @@ export function DesignPartnersContent() {
         </div>
       </main>
 
-      {/* <LandingFooter /> Removed because it's now global */}
+      <LandingFooter />
     </div>
   )
 }

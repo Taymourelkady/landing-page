@@ -30,7 +30,7 @@ export default function AboutPage() {
         <AboutUseCases />
         <AboutCTA />
       </PageTransition>
-      {/* <LandingFooter /> Removed because it's now global */}
+      <LandingFooter />
     </div>
   )
 }
