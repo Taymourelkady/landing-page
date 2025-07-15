@@ -8,6 +8,7 @@ import { Menu, ChevronDown } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Logo } from "@/components/ui/logo"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import ClientOnly from "@/components/ClientOnly"
 
 interface NavItem {
   label: string
@@ -189,102 +190,104 @@ export function SharedHeader({
           </Link>
 
           {/* Mobile Menu */}
-          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A1F2E] border-gray-700">
-              <nav className="flex flex-col gap-4 mt-8">
-                {/* Home section with nested links */}
-                {showHomeDropdown && (
-                  <div>
-                    <div className="flex items-center">
+          <ClientOnly>
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#1A1F2E] border-gray-700">
+                <nav className="flex flex-col gap-4 mt-8">
+                  {/* Home section with nested links */}
+                  {showHomeDropdown && (
+                    <div>
+                      <div className="flex items-center">
+                        <Link
+                          href="/"
+                          onClick={() => setIsMenuOpen(false)}
+                          className="text-lg font-medium text-white hover:text-treeo-500"
+                        >
+                          Home
+                        </Link>
+                      </div>
+                      <div className="pl-4 border-l border-gray-700 space-y-2 mt-2">
+                        {dropdownItems.map((item) => (
+                          <a
+                            key={item.label}
+                            href={item.href}
+                            onClick={async (e) => {
+                              e.preventDefault();
+                              if (item.href.startsWith("#")) {
+                                if (window.location.pathname !== "/") {
+                                  // Go to home, then scroll to hash after navigation
+                                  await router.push("/");
+                                  setTimeout(() => {
+                                    const el = document.getElementById(item.href.substring(1));
+                                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                                  }, 400);
+                                } else {
+                                  // Already on home, just scroll
+                                  const el = document.getElementById(item.href.substring(1));
+                                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                                }
+                              } else {
+                                router.push(item.href);
+                              }
+                            }}
+                            className="block text-base text-gray-300 hover:text-treeo-500"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Regular Nav Items */}
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-lg font-medium hover:text-treeo-500 ${
+                        item.isActive ? "text-white" : "text-gray-300"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+
+                  {/* Sign In Link (Mobile) */}
+                  {showSignIn && (
+                    signInTarget === "_blank" ? (
+                      <a
+                        href={signInHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-medium text-white hover:text-treeo-500"
+                      >
+                        Sign In
+                      </a>
+                    ) : (
                       <Link
-                        href="/"
+                        href={signInHref}
                         onClick={() => setIsMenuOpen(false)}
                         className="text-lg font-medium text-white hover:text-treeo-500"
                       >
-                        Home
+                        Sign In
                       </Link>
-                    </div>
-                    <div className="pl-4 border-l border-gray-700 space-y-2 mt-2">
-                      {dropdownItems.map((item) => (
-                        <a
-                          key={item.label}
-                          href={item.href}
-                          onClick={async (e) => {
-                            e.preventDefault();
-                            if (item.href.startsWith("#")) {
-                              if (window.location.pathname !== "/") {
-                                // Go to home, then scroll to hash after navigation
-                                await router.push("/");
-                                setTimeout(() => {
-                                  const el = document.getElementById(item.href.substring(1));
-                                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                                }, 400);
-                              } else {
-                                // Already on home, just scroll
-                                const el = document.getElementById(item.href.substring(1));
-                                if (el) el.scrollIntoView({ behavior: "smooth" });
-                              }
-                            } else {
-                              router.push(item.href);
-                            }
-                          }}
-                          className="block text-base text-gray-300 hover:text-treeo-500"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                    )
+                  )}
 
-                {/* Regular Nav Items */}
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`text-lg font-medium hover:text-treeo-500 ${
-                      item.isActive ? "text-white" : "text-gray-300"
-                    }`}
-                  >
-                    {item.label}
+                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                    <Button className="w-full mt-2 bg-treeo-500 hover:bg-treeo-600">Book a Demo</Button>
                   </Link>
-                ))}
-
-                {/* Sign In Link (Mobile) */}
-                {showSignIn && (
-                  signInTarget === "_blank" ? (
-                    <a
-                      href={signInHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-medium text-white hover:text-treeo-500"
-                    >
-                      Sign In
-                    </a>
-                  ) : (
-                    <Link
-                      href={signInHref}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-lg font-medium text-white hover:text-treeo-500"
-                    >
-                      Sign In
-                    </Link>
-                  )
-                )}
-
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full mt-2 bg-treeo-500 hover:bg-treeo-600">Book a Demo</Button>
-                </Link>
-              </nav>
-            </SheetContent>
-          </Sheet>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </ClientOnly>
         </div>
       </div>
     </header>

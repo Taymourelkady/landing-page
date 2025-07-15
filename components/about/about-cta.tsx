@@ -6,19 +6,11 @@ export function AboutCTA() {
   return (
     <section className="py-20 relative overflow-hidden bg-[#0c1420]">
       {/* Background gradient */}
-<<<<<<< HEAD
       <div className="absolute inset-0 bg-gradient-to-b from-[#101827] via-treeo-500/5 to-[#0c1420] z-0" />
 
       {/* Animated gradient background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 -left-40 w-80 h-80 bg-treeo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-=======
-      <div className="absolute inset-0 bg-gradient-to-b from-[#101827] via-emerald-500/5 to-[#0c1420] z-0" />
-
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 -left-40 w-80 h-80 bg-emerald-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
         <div className="absolute top-0 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
       </div>
 
@@ -30,11 +22,7 @@ export function AboutCTA() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-<<<<<<< HEAD
               <Button size="lg" className="gap-2 text-base px-8 bg-treeo-500 hover:bg-treeo-600">
-=======
-              <Button size="lg" className="gap-2 text-base px-8 bg-emerald-500 hover:bg-emerald-600">
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 Book a Demo
                 <ArrowRight className="h-4 w-4" />
               </Button>

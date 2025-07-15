@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { TransitionProvider } from "@/components/ui/transition-provider"
 import { FaviconManager } from "@/components/ui/favicon-manager"
+import { LandingFooter } from "@/components/landing/landing-footer"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
           <FaviconManager />
           <TransitionProvider>{children}</TransitionProvider>
+          <LandingFooter />
           <Toaster />
         </ThemeProvider>
       </body>

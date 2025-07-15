@@ -46,11 +46,7 @@ export function DesignPartnersContent() {
       <div className="bg-[#101827] py-8 border-b border-gray-700">
         <div className="container mx-auto px-4 text-center">
           <Link href="/contact">
-<<<<<<< HEAD
             <Button className="bg-treeo-500 hover:bg-treeo-600 text-white font-semibold px-8 py-3 text-lg">
-=======
-            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3 text-lg">
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               Join our design partner program waitlist
             </Button>
           </Link>
@@ -73,11 +69,7 @@ export function DesignPartnersContent() {
               <div key={benefit.number} className="flex items-center gap-6">
                 {/* Number Box */}
                 <div
-<<<<<<< HEAD
                   className={`${benefit.width} h-20 bg-treeo-500 rounded-lg flex items-center justify-center flex-shrink-0`}
-=======
-                  className={`${benefit.width} h-20 bg-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0`}
->>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 >
                   <span className="text-2xl md:text-3xl font-bold text-white">{benefit.number}</span>
                 </div>
@@ -93,7 +85,7 @@ export function DesignPartnersContent() {
         </div>
       </main>
 
-      <LandingFooter />
+      {/* <LandingFooter /> Removed because it's now global */}
     </div>
   )
 }
