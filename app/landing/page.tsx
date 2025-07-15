@@ -83,6 +83,7 @@ export default function LandingPage() {
         <LandingPricing />
         <LandingCTA />
       </PageTransition>
+      <LandingFooter />
       {process.env.NODE_ENV === "development" && <DebugSectionIds />}
     </div>
   )

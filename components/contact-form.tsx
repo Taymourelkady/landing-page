@@ -78,13 +78,22 @@ export function ContactForm() {
           <CardDescription>We've received your inquiry and will get back to you shortly.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center justify-center py-10">
+<<<<<<< HEAD
           <div className="rounded-full bg-treeo-500/20 p-3 mb-4">
             <MessageSquare className="h-6 w-6 text-treeo-500" />
+=======
+          <div className="rounded-full bg-emerald-500/20 p-3 mb-4">
+            <MessageSquare className="h-6 w-6 text-emerald-500" />
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
           </div>
           <p className="text-center text-muted-foreground mb-6">
             One of our team members will contact you within 24 hours to discuss how Treeo can help your organization.
           </p>
+<<<<<<< HEAD
           <Button asChild className="bg-treeo-500 hover:bg-treeo-600">
+=======
+          <Button asChild className="bg-emerald-500 hover:bg-emerald-600">
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
             <Link href="/landing">Return to Home</Link>
           </Button>
         </CardContent>
@@ -112,7 +121,11 @@ export function ContactForm() {
                   required
                   value={formData.firstName}
                   onChange={handleChange}
+<<<<<<< HEAD
                   className="bg-muted border-border/60 focus:border-treeo-500/50 focus:ring-treeo-500/20"
+=======
+                  className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 />
               </div>
               <div className="grid gap-2">
@@ -125,7 +138,11 @@ export function ContactForm() {
                   required
                   value={formData.lastName}
                   onChange={handleChange}
+<<<<<<< HEAD
                   className="bg-muted border-border/60 focus:border-treeo-500/50 focus:ring-treeo-500/20"
+=======
+                  className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 />
               </div>
             </div>
@@ -141,7 +158,11 @@ export function ContactForm() {
                 required
                 value={formData.email}
                 onChange={handleChange}
+<<<<<<< HEAD
                 className="bg-muted border-border/60 focus:border-treeo-500/50 focus:ring-treeo-500/20"
+=======
+                className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               />
             </div>
 
@@ -155,7 +176,11 @@ export function ContactForm() {
                 required
                 value={formData.company}
                 onChange={handleChange}
+<<<<<<< HEAD
                 className="bg-muted border-border/60 focus:border-treeo-500/50 focus:ring-treeo-500/20"
+=======
+                className="bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               />
             </div>
 
@@ -164,7 +189,11 @@ export function ContactForm() {
                 Role
               </Label>
               <Select value={formData.role} onValueChange={(value) => handleSelectChange("role", value)}>
+<<<<<<< HEAD
                 <SelectTrigger className="bg-muted border-border/60 focus:ring-treeo-500/20">
+=======
+                <SelectTrigger className="bg-muted border-border/60 focus:ring-emerald-500/20">
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                   <SelectValue placeholder="Select your role" />
                 </SelectTrigger>
                 <SelectContent>
@@ -183,7 +212,11 @@ export function ContactForm() {
                 I'm interested in
               </Label>
               <Select value={formData.interest} onValueChange={(value) => handleSelectChange("interest", value)}>
+<<<<<<< HEAD
                 <SelectTrigger className="bg-muted border-border/60 focus:ring-treeo-500/20">
+=======
+                <SelectTrigger className="bg-muted border-border/60 focus:ring-emerald-500/20">
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                   <SelectValue placeholder="Select your interest" />
                 </SelectTrigger>
                 <SelectContent>
@@ -204,13 +237,21 @@ export function ContactForm() {
               <Textarea
                 id="message"
                 placeholder="Tell us about your data needs and how we can help"
+<<<<<<< HEAD
                 className="min-h-[100px] bg-muted border-border/60 focus:border-treeo-500/50 focus:ring-treeo-500/20"
+=======
+                className="min-h-[100px] bg-muted border-border/60 focus:border-emerald-500/50 focus:ring-emerald-500/20"
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
                 value={formData.message}
                 onChange={handleChange}
               />
             </div>
 
+<<<<<<< HEAD
             <Button type="submit" className="w-full bg-treeo-500 hover:bg-treeo-600" disabled={isLoading}>
+=======
+            <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-600" disabled={isLoading}>
+>>>>>>> 40857736cfc8826d837473da2ec33c9cf282ff9c
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

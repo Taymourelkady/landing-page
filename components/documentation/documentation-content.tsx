@@ -162,6 +162,7 @@ export function DocumentationContent() {
           </main>
         </div>
       </div>
+      <LandingFooter />
     </div>
   )
 }
