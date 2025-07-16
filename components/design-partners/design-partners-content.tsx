@@ -13,8 +13,8 @@ const benefits = [
   },
   {
     number: 2,
-    title: "Free Trial",
-    description: "3 months free with unlimited users",
+    title: "Money-back guarantee",
+    description: "3 month money back guarantee",
     width: "w-48",
   },
   {
