@@ -3,8 +3,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { Logo } from "@/components/ui/logo"
+import { useSearchParams } from "next/navigation"
+import ContactFormWrapper from '@/components/contact-form-wrapper';
 
 export default function ContactPage() {
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const defaultInterest = searchParams ? searchParams.get('interest') : undefined;
   return (
     <div className="min-h-screen bg-[#101827] flex items-center justify-center p-16 dark">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-7 gap-6 relative">
@@ -70,7 +74,7 @@ export default function ContactPage() {
 
         {/* Right column - Contact form */}
         <div className="lg:col-span-4">
-          <NoScrollContactForm />
+          <ContactFormWrapper />
         </div>
       </div>
     </div>

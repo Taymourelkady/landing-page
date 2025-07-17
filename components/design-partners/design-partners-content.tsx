@@ -45,7 +45,7 @@ export function DesignPartnersContent() {
       {/* CTA Button Section */}
       <div className="bg-[#101827] py-8 border-b border-gray-700">
         <div className="container mx-auto px-4 text-center">
-          <Link href="/contact">
+          <Link href="/contact?interest=design_partner">
             <Button className="bg-treeo-500 hover:bg-treeo-600 text-white font-semibold px-8 py-3 text-lg">
               Join our design partner program waitlist
             </Button>

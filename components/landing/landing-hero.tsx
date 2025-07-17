@@ -24,7 +24,7 @@ export function LandingHero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/contact?interest=design_partner">
               <Button size="lg" className="gap-2 text-base px-8 bg-treeo-500 hover:bg-treeo-600">
                 Join our Design Partner Program
                 <ArrowRight className="h-4 w-4" />

@@ -11,7 +11,7 @@ export function Logo({ className }: LogoProps) {
       <div className="relative w-8 h-8">
         <Image src="/images/treeo-new-logo.png" alt="Treeo Logo" fill className="object-contain" priority />
       </div>
-      <span className="font-mono text-xl font-bold tracking-tight">Treeo</span>
+      <span className="font-mono text-xl font-bold tracking-tight text-white">Treeo</span>
     </Link>
   )
 }

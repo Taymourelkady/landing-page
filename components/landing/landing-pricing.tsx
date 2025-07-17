@@ -224,7 +224,7 @@ export function LandingPricing() {
 
                   <CardFooter className="pt-4">
                     {index !== 3 ? (
-                      <Link href="/contact" className="w-full">
+                      <Link href="/contact?interest=design_partner" className="w-full">
                         <Button
                           variant={plan.buttonVariant}
                           className={`w-full px-6 py-3 transition-all duration-300 ${
@@ -239,7 +239,7 @@ export function LandingPricing() {
                         </Button>
                       </Link>
                     ) : (
-                      <Link href="/contact" className="w-full">
+                      <Link href="/contact?interest=design_partner" className="w-full">
                         <Button
                           variant="outline"
                           className={`w-full px-6 py-3 transition-all duration-300 ${

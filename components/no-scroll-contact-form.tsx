@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,7 +13,7 @@ import { MessageSquare, Loader2 } from "lucide-react"
 import { type ContactFormData, sendContactFormEmail } from "@/app/actions/email-actions"
 import { useToast } from "@/hooks/use-toast"
 
-export function NoScrollContactForm() {
+export function NoScrollContactForm({ defaultInterest }: { defaultInterest?: string } = {}) {
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState<ContactFormData>({
@@ -22,10 +22,14 @@ export function NoScrollContactForm() {
     email: "",
     company: "",
     role: "",
-    interest: "",
+    interest: defaultInterest || "",
     message: "",
   })
   const { toast } = useToast()
+
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, interest: defaultInterest || "" }));
+  }, [defaultInterest]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
