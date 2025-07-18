@@ -1,16 +1,24 @@
 'use client';
 
-import { NoScrollContactForm } from "@/components/no-scroll-contact-form"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
-import { Logo } from "@/components/ui/logo"
-import { useSearchParams } from "next/navigation"
-import ContactFormWrapper from '@/components/contact-form-wrapper';
+import { useEffect, useState } from "react";
+import { NoScrollContactForm } from "@/components/no-scroll-contact-form";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
+import ContactFormWrapper from "@/components/contact-form-wrapper";
 
 export default function ContactPage() {
-  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
-  const defaultInterest = searchParams ? searchParams.get('interest') : undefined;
+  const [defaultInterest, setDefaultInterest] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const interest = searchParams.get('interest');
+      setDefaultInterest(interest);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#101827] flex items-center justify-center p-16 dark">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-7 gap-6 relative">
@@ -80,7 +88,5 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-// comment
