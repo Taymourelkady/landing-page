@@ -24,8 +24,8 @@ export function LandingDemo() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <MessageSquare className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <MessageSquare className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Conversational Interface</h4>
@@ -35,8 +35,8 @@ export function LandingDemo() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <Database className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <Database className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Direct Database Connection</h4>
@@ -62,8 +62,8 @@ export function LandingDemo() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <Hash className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <Hash className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Consistent Definitions</h4>
@@ -73,8 +73,8 @@ export function LandingDemo() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <AtSign className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <AtSign className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Data References</h4>
@@ -100,8 +100,8 @@ export function LandingDemo() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <FileCheck className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <FileCheck className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Schema Analysis</h4>
@@ -111,8 +111,8 @@ export function LandingDemo() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <ArrowRight className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <ArrowRight className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Actionable Recommendations</h4>
@@ -138,8 +138,8 @@ export function LandingDemo() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <LineChart className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <LineChart className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Smart Chart Selection</h4>
@@ -149,8 +149,8 @@ export function LandingDemo() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <MessageSquare className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <MessageSquare className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Interactive Exploration</h4>
@@ -178,8 +178,8 @@ export function LandingDemo() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <Table className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <Table className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">Familiar Interface</h4>
@@ -189,8 +189,8 @@ export function LandingDemo() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="bg-emerald-500/20 p-2 rounded-full">
-                <MessageSquare className="h-5 w-5 text-emerald-500" />
+              <div className="bg-treeo-500/20 p-2 rounded-full">
+                <MessageSquare className="h-5 w-5 text-treeo-500" />
               </div>
               <div>
                 <h4 className="font-medium text-white">AI-Powered Analysis</h4>
@@ -223,7 +223,7 @@ export function LandingDemo() {
               <TabsTrigger
                 key={demo.id}
                 value={demo.id}
-                className="flex items-center gap-2 data-[state=active]:bg-emerald-500 data-[state=active]:text-white"
+                className="flex items-center gap-2 data-[state=active]:bg-treeo-500 data-[state=active]:text-white"
               >
                 {demo.icon}
                 <span className="hidden md:inline">{demo.title}</span>
@@ -237,7 +237,7 @@ export function LandingDemo() {
                 <div className="md:col-span-2 order-2 md:order-1">
                   {demo.content}
                   <Link href="/contact">
-                    <Button className="mt-6 gap-2 bg-emerald-500 hover:bg-emerald-600">
+                    <Button className="mt-6 gap-2 bg-treeo-500 hover:bg-treeo-600">
                       Book a Demo <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>

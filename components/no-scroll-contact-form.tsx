@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,8 +12,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MessageSquare, Loader2 } from "lucide-react"
 import { type ContactFormData, sendContactFormEmail } from "@/app/actions/email-actions"
 import { useToast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
 
-export function NoScrollContactForm() {
+export function NoScrollContactForm({ defaultInterest }: { defaultInterest?: string } = {}) {
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState<ContactFormData>({
@@ -22,10 +23,31 @@ export function NoScrollContactForm() {
     email: "",
     company: "",
     role: "",
-    interest: "",
+    interest: defaultInterest || "",
     message: "",
   })
   const { toast } = useToast()
+  const [redirectCountdown, setRedirectCountdown] = useState(10);
+  const router = useRouter();
+
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, interest: defaultInterest || "" }));
+  }, [defaultInterest]);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      const interval = setInterval(() => {
+        setRedirectCountdown((prev) => prev - 1);
+      }, 1000);
+      const timeout = setTimeout(() => {
+        router.push("/landing");
+      }, 10000);
+      return () => {
+        clearInterval(interval);
+        clearTimeout(timeout);
+      };
+    }
+  }, [isSubmitted, router]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
@@ -71,18 +93,23 @@ export function NoScrollContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-[#1A1F2E] rounded-lg p-8 text-center">
-        <div className="rounded-full bg-emerald-500/20 p-3 mb-4 mx-auto w-fit">
-          <MessageSquare className="h-6 w-6 text-emerald-500" />
+      <div className="flex items-center justify-center min-h-[350px] w-full">
+        <div className="bg-[#101827] rounded-2xl p-10 text-center flex flex-col items-center justify-center w-full max-w-md shadow-xl animate-fade-in">
+          <div className="rounded-full bg-treeo-500/20 p-4 mb-6 flex items-center justify-center">
+            <svg className="animate-bounce h-12 w-12 text-treeo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2l4-4" /></svg>
+          </div>
+          <h2 className="text-3xl font-extrabold mb-3 text-white">Thank you for reaching out!</h2>
+          <p className="text-lg text-gray-300 mb-4">We've received your message and a member of our team will get back to you soon.<br/>You will be redirected to the home page in <span className="font-bold text-treeo-500">{redirectCountdown}</span> seconds.</p>
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-400">Redirecting</span>
+              <span className="inline-block h-4 w-4 border-2 border-treeo-500 border-t-transparent rounded-full animate-spin"></span>
+            </div>
+            <Button asChild className="bg-treeo-500 hover:bg-treeo-600 mt-4">
+              <Link href="/landing">Return to Home Now</Link>
+            </Button>
+          </div>
         </div>
-        <h2 className="text-2xl font-bold mb-2 text-white">Thank You!</h2>
-        <p className="text-gray-300 mb-6">
-          We've received your inquiry and will get back to you shortly. One of our team members will contact you within
-          24 hours.
-        </p>
-        <Button asChild className="bg-emerald-500 hover:bg-emerald-600">
-          <Link href="/landing">Return to Home</Link>
-        </Button>
       </div>
     )
   }
@@ -208,7 +235,7 @@ export function NoScrollContactForm() {
 
         <div className="flex items-center justify-between pt-2">
           <p className="text-xs text-gray-400">By submitting, you agree to our Terms of Service.</p>
-          <Button type="submit" className="bg-emerald-500 hover:bg-emerald-600 text-white px-8" disabled={isLoading}>
+          <Button type="submit" className="bg-treeo-500 hover:bg-treeo-600 text-white px-8" disabled={isLoading}>
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

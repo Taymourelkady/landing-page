@@ -4,22 +4,22 @@ import { Database, MessageSquare, Hash, LineChart } from "lucide-react"
 export function AboutMission() {
   const problems = [
     {
-      icon: <Database className="h-8 w-8 text-emerald-500" />,
+      icon: <Database className="h-8 w-8 text-treeo-500" />,
       title: "Data Silos",
       description: "Teams work with different data sources, leading to inconsistent metrics and definitions.",
     },
     {
-      icon: <Hash className="h-8 w-8 text-emerald-500" />,
+      icon: <Hash className="h-8 w-8 text-treeo-500" />,
       title: "Metric Confusion",
       description: "Different departments define and calculate key metrics in different ways.",
     },
     {
-      icon: <MessageSquare className="h-8 w-8 text-emerald-500" />,
+      icon: <MessageSquare className="h-8 w-8 text-treeo-500" />,
       title: "Communication Gaps",
       description: "Technical and non-technical teams struggle to communicate about data needs.",
     },
     {
-      icon: <LineChart className="h-8 w-8 text-emerald-500" />,
+      icon: <LineChart className="h-8 w-8 text-treeo-500" />,
       title: "Validation Overhead",
       description: "Teams spend excessive time validating data rather than deriving insights.",
     },
@@ -39,7 +39,7 @@ export function AboutMission() {
           {problems.map((problem, index) => (
             <Card
               key={index}
-              className="bg-[#1A1F2E] border-gray-700 hover:border-emerald-500/50 transition-colors h-full"
+              className="bg-[#1A1F2E] border-gray-700 hover:border-treeo-500/50 transition-colors h-full"
             >
               <CardContent className="pt-6">
                 <div className="mb-4">{problem.icon}</div>
@@ -62,7 +62,7 @@ export function AboutMission() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <Hash className="h-5 w-5 text-emerald-500" />
+                    <Hash className="h-5 w-5 text-treeo-500" />
                     <h4 className="font-semibold text-lg text-white">Metrics Dictionary</h4>
                   </div>
                   <p className="text-gray-300 mb-4">
@@ -70,21 +70,21 @@ export function AboutMission() {
                     same definitions.
                   </p>
                   <div className="bg-[#1A1F2E] p-4 rounded-lg border border-gray-700">
-                    <code className="text-sm text-emerald-400">
+                    <code className="text-sm text-treeo-400">
                       What was our #monthly_active_users for Q1 compared to Q4 last year?
                     </code>
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <MessageSquare className="h-5 w-5 text-emerald-500" />
+                    <MessageSquare className="h-5 w-5 text-treeo-500" />
                     <h4 className="font-semibold text-lg text-white">Natural Language Interface</h4>
                   </div>
                   <p className="text-gray-300 mb-4">
                     Ask questions in plain English and get immediate answers, visualizations, and insights.
                   </p>
                   <div className="bg-[#1A1F2E] p-4 rounded-lg border border-gray-700">
-                    <code className="text-sm text-emerald-400">
+                    <code className="text-sm text-treeo-400">
                       Show me the correlation between customer support tickets and churn rate by plan type
                     </code>
                   </div>

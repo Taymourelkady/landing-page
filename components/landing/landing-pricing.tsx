@@ -9,6 +9,8 @@ import { useState } from "react"
 export function LandingPricing() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [isYearly, setIsYearly] = useState(false)
+  // Toggle this boolean to show/hide the blur overlay
+  const showBlurOverlay = true; // Set to false to hide the blur
 
   // Helper function to format price
   const formatPrice = (price: number | string): string => {
@@ -110,8 +112,17 @@ export function LandingPricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-24">
-      <div className="container">
+    <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-24 relative overflow-hidden">
+      {/* Blur Overlay - covers the entire section including padding */}
+      {showBlurOverlay && (
+        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center backdrop-blur-md bg-[#101827]/80" style={{minHeight: '100%', minWidth: '100%'}}>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Pricing plans are coming soon</h2>
+          <Link href="/contact" className="text-emerald-400 text-xl font-semibold hover:underline">
+            Sign up to hear first
+          </Link>
+        </div>
+      )}
+      <div className="container relative">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-1.5 text-sm font-medium mb-4">
             <Sparkles className="h-4 w-4 text-emerald-500" />
@@ -143,7 +154,7 @@ export function LandingPricing() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto relative">
           {plans.map((plan, index) => {
             const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice
             const period = isYearly ? "year" : "month"
@@ -213,7 +224,7 @@ export function LandingPricing() {
 
                   <CardFooter className="pt-4">
                     {index !== 3 ? (
-                      <Link href="/contact" className="w-full">
+                      <Link href="/contact?interest=design_partner" className="w-full">
                         <Button
                           variant={plan.buttonVariant}
                           className={`w-full px-6 py-3 transition-all duration-300 ${
@@ -228,7 +239,7 @@ export function LandingPricing() {
                         </Button>
                       </Link>
                     ) : (
-                      <Link href="/contact" className="w-full">
+                      <Link href="/contact?interest=design_partner" className="w-full">
                         <Button
                           variant="outline"
                           className={`w-full px-6 py-3 transition-all duration-300 ${
