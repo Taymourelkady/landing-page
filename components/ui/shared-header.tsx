@@ -103,6 +103,7 @@ export function SharedHeader({
           {/* Home Link + Dropdown */}
           {showHomeDropdown && (
             <div className="relative flex items-center">
+
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button
@@ -110,10 +111,12 @@ export function SharedHeader({
                   >
                     Home
                     <ChevronDown className="h-4 w-4 ml-1" />
+
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="bg-[#1A1F2E] border-gray-700 text-white">
                   {dropdownItems.map((item) => (
+
                     <DropdownMenuItem key={item.label} className="focus:bg-treeo-500/20 focus:text-white">
                       <a
                         href={item.href}
@@ -136,6 +139,7 @@ export function SharedHeader({
                             router.push(item.href);
                           }
                         }}
+
                         className="w-full py-1 text-sm font-medium text-gray-300 transition-colors hover:text-white"
                       >
                         {item.label}
@@ -152,7 +156,9 @@ export function SharedHeader({
             <Link
               key={item.label}
               href={item.href}
+
               className={`text-sm font-medium transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md ${
+
                 item.isActive ? "text-white" : "text-gray-300"
               }`}
             >
@@ -169,14 +175,18 @@ export function SharedHeader({
                 href={signInHref}
                 target="_blank"
                 rel="noopener noreferrer"
+
                 className="hidden md:block text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md"
+
               >
                 Sign In
               </a>
             ) : (
               <Link
                 href={signInHref}
+
                 className="hidden md:block text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md"
+
               >
                 Sign In
               </Link>
@@ -185,7 +195,9 @@ export function SharedHeader({
 
           {/* Book a Demo Button */}
           <Link href="/contact">
+
             <Button className="hidden md:flex bg-treeo-500 hover:bg-treeo-600">Book a Demo</Button>
+
           </Link>
 
           {/* Mobile Menu */}
@@ -205,7 +217,9 @@ export function SharedHeader({
                       <Link
                         href="/"
                         onClick={() => setIsMenuOpen(false)}
+
                         className="text-lg font-medium text-white hover:text-treeo-500"
+
                       >
                         Home
                       </Link>
@@ -215,6 +229,7 @@ export function SharedHeader({
                         <a
                           key={item.label}
                           href={item.href}
+
                           onClick={async (e) => {
                             e.preventDefault();
                             if (item.href.startsWith("#")) {
@@ -235,6 +250,7 @@ export function SharedHeader({
                             }
                           }}
                           className="block text-base text-gray-300 hover:text-treeo-500"
+
                         >
                           {item.label}
                         </a>
@@ -249,7 +265,9 @@ export function SharedHeader({
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
+
                     className={`text-lg font-medium hover:text-treeo-500 ${
+
                       item.isActive ? "text-white" : "text-gray-300"
                     }`}
                   >
@@ -264,7 +282,9 @@ export function SharedHeader({
                       href={signInHref}
                       target="_blank"
                       rel="noopener noreferrer"
+
                       className="text-lg font-medium text-white hover:text-treeo-500"
+
                     >
                       Sign In
                     </a>
@@ -272,7 +292,9 @@ export function SharedHeader({
                     <Link
                       href={signInHref}
                       onClick={() => setIsMenuOpen(false)}
+
                       className="text-lg font-medium text-white hover:text-treeo-500"
+
                     >
                       Sign In
                     </Link>
@@ -280,7 +302,9 @@ export function SharedHeader({
                 )}
 
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+
                   <Button className="w-full mt-2 bg-treeo-500 hover:bg-treeo-600">Book a Demo</Button>
+
                 </Link>
               </nav>
             </SheetContent>
