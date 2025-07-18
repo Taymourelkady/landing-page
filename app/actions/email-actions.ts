@@ -24,7 +24,7 @@ export async function sendContactFormEmail(formData: ContactFormData) {
 
     // Send the email
     const { data, error } = await resend.emails.send({
-      from: "Treeo Contact Form <contact@treeo.ai>",
+      from: "Treeo Contact Form <Taymour@treeo.ai>",
       to: "taymour@treeo.ai",
       subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
       reply_to: formData.email,
