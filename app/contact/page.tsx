@@ -1,3 +1,5 @@
+'use client';
+
 import { NoScrollContactForm } from "@/components/no-scroll-contact-form"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -80,4 +82,3 @@ export default function ContactPage() {
     </div>
   )
 }
-// comment //
