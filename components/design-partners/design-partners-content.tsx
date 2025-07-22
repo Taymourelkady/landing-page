@@ -39,14 +39,14 @@ const benefits = [
 
 export function DesignPartnersContent() {
   return (
-    <div className="min-h-screen bg-[#101827] text-white">
+    <div className="min-h-screen bg-[#101827] text-white w-full overflow-x-hidden">
       <LandingHeader />
 
       {/* CTA Button Section */}
-      <div className="bg-[#101827] py-8 border-b border-gray-700">
-        <div className="container mx-auto px-4 text-center">
-          <Link href="/contact?interest=design_partner">
-            <Button className="bg-treeo-500 hover:bg-treeo-600 text-white font-semibold px-8 py-3 text-lg">
+      <div className="bg-[#101827] py-8 border-b border-gray-700 w-full overflow-x-hidden">
+        <div className="container mx-auto px-2 sm:px-4 text-center w-full">
+          <Link href="/contact?interest=design_partner" className="block w-full max-w-xs mx-auto">
+            <Button className="w-full max-w-xs mx-auto bg-treeo-500 hover:bg-treeo-600 text-white font-semibold px-4 py-3 text-base sm:text-lg">
               Join our design partner program waitlist
             </Button>
           </Link>
@@ -56,8 +56,8 @@ export function DesignPartnersContent() {
       <main className="container mx-auto px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Join Our Design Partner Program</h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6">Join Our Design Partner Program</h1>
+          <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
             Partner with us to shape the future of Treeo while enjoying exclusive benefits
           </p>
         </div>
@@ -66,18 +66,18 @@ export function DesignPartnersContent() {
         <div className="max-w-6xl mx-auto mb-16">
           <div className="space-y-8">
             {benefits.map((benefit, index) => (
-              <div key={benefit.number} className="flex items-center gap-6">
+              <div key={benefit.number} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
                 {/* Number Box */}
                 <div
-                  className={`${benefit.width} h-20 bg-treeo-500 rounded-lg flex items-center justify-center flex-shrink-0`}
+                  className={`w-16 h-16 sm:${benefit.width} sm:h-20 bg-treeo-500 rounded-lg flex items-center justify-center flex-shrink-0 mb-2 sm:mb-0`}
                 >
-                  <span className="text-2xl md:text-3xl font-bold text-white">{benefit.number}</span>
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{benefit.number}</span>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">{benefit.title}</h3>
-                  <p className="text-lg md:text-xl text-gray-300">{benefit.description}</p>
+                  <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">{benefit.title}</h3>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-300">{benefit.description}</p>
                 </div>
               </div>
             ))}

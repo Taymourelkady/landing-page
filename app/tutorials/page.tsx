@@ -1,6 +1,7 @@
 import { PageTransition } from "@/components/ui/page-transition"
 import { TutorialsContent } from "@/components/tutorials/tutorials-content"
 import type { Metadata } from "next"
+import { LandingFooter } from "@/components/landing/landing-footer"
 
 export const metadata: Metadata = {
   title: "Tutorials | Treeo",
@@ -9,8 +10,11 @@ export const metadata: Metadata = {
 
 export default function TutorialsPage() {
   return (
-    <PageTransition>
-      <TutorialsContent />
-    </PageTransition>
+    <>
+      <PageTransition>
+        <TutorialsContent />
+      </PageTransition>
+      <LandingFooter />
+    </>
   )
 }

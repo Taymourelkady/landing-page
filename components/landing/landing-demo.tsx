@@ -237,7 +237,7 @@ export function LandingDemo() {
                 <div className="md:col-span-2 order-2 md:order-1">
                   {demo.content}
                   <Link href="/contact">
-                    <Button className="mt-6 gap-2 bg-treeo-500 hover:bg-treeo-600">
+                    <Button className="mt-6 gap-2 bg-treeo-500 hover:bg-treeo-600 text-white">
                       Book a Demo <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>

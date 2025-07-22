@@ -115,11 +115,13 @@ export function LandingPricing() {
     <section id="pricing" className="py-20 bg-[#0c1420] scroll-mt-24 relative overflow-hidden">
       {/* Blur Overlay - covers the entire section including padding */}
       {showBlurOverlay && (
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center backdrop-blur-md bg-[#101827]/80" style={{minHeight: '100%', minWidth: '100%'}}>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Pricing plans are coming soon</h2>
-          <Link href="/contact" className="text-emerald-400 text-xl font-semibold hover:underline">
-            Sign up to hear first
-          </Link>
+        <div className="absolute inset-0 z-30 flex items-center justify-center w-full h-full backdrop-blur-md bg-[#101827]/80">
+          <div className="flex flex-col items-center justify-center text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Pricing plans are coming soon</h2>
+            <Link href="/contact" className="text-emerald-400 text-xl font-semibold hover:underline">
+              Sign up to hear first
+            </Link>
+          </div>
         </div>
       )}
       <div className="container relative">

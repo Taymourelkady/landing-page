@@ -196,7 +196,7 @@ export function SharedHeader({
           {/* Book a Demo Button */}
           <Link href="/contact">
 
-            <Button className="hidden md:flex bg-treeo-500 hover:bg-treeo-600">Book a Demo</Button>
+            <Button className="hidden md:flex bg-treeo-500 hover:bg-treeo-600 text-white">Book a Demo</Button>
 
           </Link>
 
@@ -303,7 +303,7 @@ export function SharedHeader({
 
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
 
-                  <Button className="w-full mt-2 bg-treeo-500 hover:bg-treeo-600">Book a Demo</Button>
+                  <Button className="w-full mt-2 bg-treeo-500 hover:bg-treeo-600 text-white">Book a Demo</Button>
 
                 </Link>
               </nav>
