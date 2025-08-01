@@ -34,6 +34,7 @@ export function LandingFooter() {
         { label: "About", href: "/about" },
         { label: "Contact Us", href: "/contact" },
         { label: "Privacy", href: "/privacy" },
+        { label: "Terms", href: "/terms" },
       ],
     },
   ]
@@ -83,6 +84,9 @@ export function LandingFooter() {
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-sm text-gray-400 hover:text-white">
               Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-sm text-gray-400 hover:text-white">
+              Terms & Conditions
             </Link>
           </div>
         </div>
