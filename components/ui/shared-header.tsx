@@ -23,18 +23,22 @@ interface DropdownItem {
 interface SharedHeaderProps {
   navItems: NavItem[]
   dropdownItems?: DropdownItem[]
+  aboutDropdownItems?: DropdownItem[]
   signInHref?: string
   signInTarget?: "_blank" | "_self"
   showHomeDropdown?: boolean
+  showAboutDropdown?: boolean
   showSignIn?: boolean
 }
 
-export function SharedHeader({ 
-  navItems = [], 
-  dropdownItems = [], 
+export function SharedHeader({
+  navItems = [],
+  dropdownItems = [],
+  aboutDropdownItems = [],
   signInHref = "https://app.treeo.ai",
   signInTarget = "_blank",
   showHomeDropdown = false,
+  showAboutDropdown = false,
   showSignIn = true
 }: SharedHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -99,66 +103,108 @@ export function SharedHeader({
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-2">
           {/* Home Link + Dropdown */}
           {showHomeDropdown && (
-            <div className="relative flex items-center">
-
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button
-                    className="flex items-center text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md focus:outline-none"
-                  >
-                    Home
-                    <ChevronDown className="h-4 w-4 ml-1" />
-
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="center" className="bg-[#1A1F2E] border-gray-700 text-white">
-                  {dropdownItems.map((item) => (
-
-                    <DropdownMenuItem key={item.label} className="focus:bg-treeo-500/20 focus:text-white">
-                      <a
-                        href={item.href}
-                        onClick={async (e) => {
-                          e.preventDefault();
-                          if (item.href.startsWith("#")) {
-                            if (window.location.pathname !== "/") {
-                              // Go to home, then scroll to hash after navigation
-                              await router.push("/");
-                              setTimeout(() => {
-                                const el = document.getElementById(item.href.substring(1));
-                                if (el) el.scrollIntoView({ behavior: "smooth" });
-                              }, 400);
-                            } else {
-                              // Already on home, just scroll
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className="text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md focus:outline-none"
+                >
+                  Home
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-[#1A1F2E] border-gray-700 text-white">
+                {dropdownItems.map((item) => (
+                  <DropdownMenuItem key={item.label} className="focus:bg-treeo-500/20 focus:text-white">
+                    <a
+                      href={item.href}
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        if (item.href.startsWith("#")) {
+                          if (window.location.pathname !== "/") {
+                            await router.push("/");
+                            setTimeout(() => {
                               const el = document.getElementById(item.href.substring(1));
                               if (el) el.scrollIntoView({ behavior: "smooth" });
-                            }
+                            }, 400);
                           } else {
-                            router.push(item.href);
+                            const el = document.getElementById(item.href.substring(1));
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
                           }
-                        }}
-
-                        className="w-full py-1 text-sm font-medium text-gray-300 transition-colors hover:text-white"
-                      >
-                        {item.label}
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+                        } else {
+                          router.push(item.href);
+                        }
+                      }}
+                      className="w-full py-1 text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           )}
 
-          {/* Regular Nav Items */}
-          {navItems.map((item) => (
+          {/* About Link + Dropdown */}
+          {showAboutDropdown ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className="text-sm font-medium text-gray-300 transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md focus:outline-none"
+                >
+                  About
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-[#1A1F2E] border-gray-700 text-white">
+                {aboutDropdownItems.map((item) => (
+                  <DropdownMenuItem key={item.label} className="focus:bg-treeo-500/20 focus:text-white">
+                    <a
+                      href={item.href}
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        if (item.href.startsWith("#")) {
+                          if (window.location.pathname !== "/about") {
+                            await router.push("/about");
+                            setTimeout(() => {
+                              const el = document.getElementById(item.href.substring(1));
+                              if (el) el.scrollIntoView({ behavior: "smooth" });
+                            }, 400);
+                          } else {
+                            const el = document.getElementById(item.href.substring(1));
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
+                          }
+                        } else {
+                          router.push(item.href);
+                        }
+                      }}
+                      className="w-full py-1 text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            navItems.find(item => item.label === "About") && (
+              <Link
+                href="/about"
+                className={`text-sm font-medium transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md ${
+                  navItems.find(item => item.label === "About")?.isActive ? "text-white" : "text-gray-300"
+                }`}
+              >
+                About
+              </Link>
+            )
+          )}
+
+          {/* Regular Nav Items (excluding About if it's in dropdown) */}
+          {navItems.filter(item => !showAboutDropdown || item.label !== "About").map((item) => (
             <Link
               key={item.label}
               href={item.href}
-
               className={`text-sm font-medium transition-colors hover:text-white hover:bg-treeo-500/10 px-3 py-2 rounded-md ${
-
                 item.isActive ? "text-white" : "text-gray-300"
               }`}
             >
@@ -259,15 +305,57 @@ export function SharedHeader({
                   </div>
                 )}
 
-                {/* Regular Nav Items */}
-                {navItems.map((item) => (
+                {/* About section with nested links */}
+                {showAboutDropdown && (
+                  <div>
+                    <div className="flex items-center">
+                      <Link
+                        href="/about"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-lg font-medium text-white hover:text-treeo-500"
+                      >
+                        About
+                      </Link>
+                    </div>
+                    <div className="pl-4 border-l border-gray-700 space-y-2 mt-2">
+                      {aboutDropdownItems.map((item) => (
+                        <a
+                          key={item.label}
+                          href={item.href}
+                          onClick={async (e) => {
+                            e.preventDefault();
+                            setIsMenuOpen(false);
+                            if (item.href.startsWith("#")) {
+                              if (window.location.pathname !== "/about") {
+                                await router.push("/about");
+                                setTimeout(() => {
+                                  const el = document.getElementById(item.href.substring(1));
+                                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                                }, 400);
+                              } else {
+                                const el = document.getElementById(item.href.substring(1));
+                                if (el) el.scrollIntoView({ behavior: "smooth" });
+                              }
+                            } else {
+                              router.push(item.href);
+                            }
+                          }}
+                          className="block text-base text-gray-300 hover:text-treeo-500"
+                        >
+                          {item.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Regular Nav Items (excluding About if in dropdown) */}
+                {navItems.filter(item => !showAboutDropdown || item.label !== "About").map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-
                     className={`text-lg font-medium hover:text-treeo-500 ${
-
                       item.isActive ? "text-white" : "text-gray-300"
                     }`}
                   >
